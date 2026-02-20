@@ -57,11 +57,10 @@
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    height: 22px;
+    height: 26px;
   }
   .section-header.orange-bar {
     background: var(--orange);
-    height: 26px;
   }
   .section-header > div {
     display: flex;
@@ -76,7 +75,7 @@
   }
   .section-title-en {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 10px;
+    font-size: 11.5px;
     letter-spacing: 0.1em;
     opacity: 0.7;
     line-height: 1;
@@ -105,6 +104,8 @@
     height: auto;
     display: block;
     flex-shrink: 0;
+    transform: scale(0.96);
+    transform-origin: left center;
   }
   .header-tagline {
     display: flex;
@@ -451,6 +452,14 @@
     justify-content: center;
     gap: 6px;
     flex-shrink: 0;
+    position: relative;
+  }
+  .footer-currency {
+    position: absolute;
+    right: 12px;
+    font-size: 8px;
+    color: var(--text-3);
+    letter-spacing: 0.04em;
   }
   .footer .sep {
     color: var(--text-3);
@@ -494,6 +503,50 @@
   .compact-list .pl-price { font-size: 16px; }
   .compact-list .pl-row.upgrade .pl-name,
   .compact-list .pl-row.upgrade .pl-price { font-size: 10px; }
+
+  /* ─── 自行车租赁列 ─── */
+  .rental-sub {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--divider);
+    overflow: hidden;
+  }
+  .rental-img-wrap {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    margin-right: 8px;
+    border-radius: 8px;
+  }
+  .rental-img-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 18px;
+    background: linear-gradient(to right, var(--bg), transparent);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .rental-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+  }
+  .rental-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 10px 10px 8px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.92) 35%);
+  }
+  .rental-slogan { font-size: 9px; font-weight: 700; color: var(--text-1); line-height: 1.3; margin-bottom: 3px; }
+  .rental-price-big { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--orange); line-height: 1; margin-bottom: 6px; letter-spacing: 0.04em; }
+  .rental-tiers { display: flex; gap: 8px; margin-bottom: 5px; }
+  .rental-tier { font-size: 7.5px; color: var(--text-2); line-height: 1.4; }
+  .rental-tier strong { font-family: 'Bebas Neue', sans-serif; font-size: 12px; color: var(--orange); }
+  .rental-process { font-size: 7px; color: var(--text-3); line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4px; }
+  .rental-process strong { color: var(--text-2); font-size: 7.5px; letter-spacing: 0.04em; }
 
   /* ─── Print ─── */
   @page {
@@ -575,7 +628,7 @@
             <div class="cn-name">草莓维也纳</div>
             <div class="en-name">STRAWBERRY VIENNESE</div>
             <div class="desc">草莓莓粉、新鲜草莓、手作浓郁奶盖</div>
-            <div class="price">42 RMB</div>
+            <div class="price">42</div>
           </div>
         </div>
 
@@ -588,7 +641,7 @@
             <div class="cn-name">香水柠檬 Dirty</div>
             <div class="en-name">PERFUME LEMON DIRTY</div>
             <div class="desc">香柠檬之汁、青柠皮屑、冰博克基底</div>
-            <div class="price">42 RMB</div>
+            <div class="price">42</div>
           </div>
         </div>
 
@@ -601,7 +654,7 @@
             <div class="cn-name">圣诞热红酒</div>
             <div class="en-name">CHRISTMAS MULLED WINE</div>
             <div class="desc">肉桂、丁香、新鲜橙片，经典的暖冬味道</div>
-            <div class="price">58 RMB</div>
+            <div class="price">58</div>
           </div>
         </div>
 
@@ -730,7 +783,7 @@
             <div class="combo-title">午后社区套餐</div>
             <div class="combo-desc">任意经典咖啡 + 黑巧燕麦脆墩墩</div>
           </div>
-          <div class="combo-badge">立减 5元</div>
+          <div class="combo-badge">减5</div>
         </div>
 
         <div class="combo-mini">
@@ -739,7 +792,7 @@
             <div class="combo-title">骑行补给套餐</div>
             <div class="combo-desc">任意经典咖啡 + 巴斯克蛋糕</div>
           </div>
-          <div class="combo-badge">立减 5元</div>
+          <div class="combo-badge">减5</div>
         </div>
 
         <div class="combo-mini highlight">
@@ -748,7 +801,7 @@
             <div class="combo-title">骑行体验套餐</div>
             <div class="combo-desc">小布租赁 1小时 + 每日美式</div>
           </div>
-          <div class="combo-badge">¥ 58</div>
+          <div class="combo-badge">58</div>
         </div>
 
       </div>
@@ -809,12 +862,12 @@
             <div class="pl-row upgrade">
               <span class="pl-name">燕麦奶 / 冰博克升级</span>
               <span class="pl-dots"></span>
-              <span class="pl-price">+3 RMB</span>
+              <span class="pl-price">+3</span>
             </div>
             <div class="pl-row upgrade">
               <span class="pl-name">SOE 豆子升级（酒香/樱桃）</span>
               <span class="pl-dots"></span>
-              <span class="pl-price">+5 RMB</span>
+              <span class="pl-price">+5</span>
             </div>
           </div>
 
@@ -866,6 +919,32 @@
 
         </div>
 
+        <!-- 右子列：自行车租赁 -->
+        <div class="rental-sub">
+          <div class="section-header">
+            <div>
+              <div class="section-title-cn">自行车租赁</div>
+              <div class="section-title-en">BIKE RENTAL</div>
+            </div>
+          </div>
+          <div class="rental-img-wrap">
+            <img src="imgs/brompton-rental.jpg" alt="小布租赁">
+            <div class="rental-overlay">
+              <div class="rental-slogan">用共享单车的价格租小布</div>
+              <div class="rental-price-big">1.5 / 15MIN</div>
+              <div class="rental-tiers">
+                <div class="rental-tier">1H 尝鲜<br><strong>35</strong></div>
+                <div class="rental-tier">4H 半日<br><strong>88</strong></div>
+                <div class="rental-tier">24H 封顶<br><strong>158</strong></div>
+              </div>
+              <div class="rental-process">
+                <strong>PROCESS / 流程</strong><br>
+                扫码实名核验 &gt; 缴纳押金 4,000 &gt; 凭取车码出发
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -874,13 +953,14 @@
   <!-- ═══ G · FOOTER ═══ -->
   <footer class="footer">
     <span class="footer-icon">🚲</span>
-    <span class="footer-main"><strong>骑行到店减 3 元</strong></span>
+    <span class="footer-main"><strong>骑行到店减3</strong></span>
     <span class="sep">|</span>
     <span class="footer-icon">☕</span>
-    <span class="footer-main"><strong>自带杯减 3 元</strong></span>
+    <span class="footer-main"><strong>自带杯减3</strong></span>
     <span class="sep">|</span>
     <span class="footer-icon">🐾</span>
     <span class="footer-main"><strong>宠物友好</strong></span>
+    <span class="footer-currency">货币单位为人民币 (RMB)</span>
   </footer>
 
 </div>
