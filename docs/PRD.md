@@ -76,8 +76,9 @@
 ### Gallery 索引页 (index.html)
 
 - 通过 iframe 嵌入两个菜单的缩放实时预览
-- 主题切换器：圆形色块行，点击即切换
-- 操作入口：查看原尺寸、打印 PDF
+- 主题切换器：圆形色块行，点击即切换全部菜单主题
+- 布局切换器：每个菜单卡片独立的 Layout A/B 切换按钮
+- 操作入口：查看原尺寸、导出 PDF（弹窗引导 CLI 命令）
 - 深色主题（与品牌一致）
 - 需通过 HTTP 服务预览
 
@@ -103,6 +104,75 @@
 ### 持久化
 
 通过 localStorage 存储当前主题，刷新/重开后自动恢复。Gallery 页通过 postMessage 同步主题到 iframe。
+
+---
+
+## 布局变体系统
+
+### 设计原则
+
+- 主题全局共享（`data-theme`）、布局各菜单独立（`data-layout`）
+- 纯 CSS 实现，不改变菜单 HTML 结构
+- CSS 选择器前缀 `[data-layout="b"]`
+
+### 墙面菜单 Layout B — "特调优先"
+
+| 属性 | Layout A（默认） | Layout B |
+|------|-----------------|----------|
+| 列顺序 | 季节限定 → 特调 → 经典 | 特调 → 季节限定 → 经典 |
+| 特调网格 | 2 列 (430px) | 3 列 (480px) |
+| 季节限定列宽 | 290px | 250px |
+| 组合卡方向 | 纵向堆叠 | 横向并排 |
+
+**使用场景：** 特调品类丰富时，突出特调区域的视觉权重。
+
+### A4 菜单 Layout B — "双栏紧凑"
+
+| 属性 | Layout A（默认） | Layout B |
+|------|-----------------|----------|
+| 主体布局 | flex 纵向堆叠 | CSS Grid 双栏 (115px + 95px) |
+| 季节限定卡 | 横向 3 卡 | 纵向 3 卡 |
+| 特调+组合 | 独立区块 | 与季节限定同列（左栏） |
+| 经典+非咖啡+租赁 | 横排双列 | 右栏纵向堆叠 |
+
+**使用场景：** 品类较多需要紧凑排版时，利用双栏提高信息密度。
+
+### 持久化
+
+| localStorage Key | 用途 | 默认值 |
+|-----------------|------|--------|
+| `wall-layout` | 墙面菜单布局 | `a` |
+| `a4-layout` | A4 菜单布局 | `a` |
+
+Gallery 通过 postMessage 同步布局选择到对应 iframe。
+
+---
+
+## PDF 导出
+
+### 工具
+
+基于 Puppeteer 的自动化 PDF 导出工具，在本地启动 HTTP 服务 → 加载菜单页面 → 应用主题/布局 → 导出精确尺寸 PDF。
+
+### 输出规格
+
+| 菜单 | PDF 尺寸 | 方向 | 文件名格式 |
+|------|---------|------|-----------|
+| 墙面菜单 | 1250mm x 600mm | 横版 | `wall-menu-{theme}-{layout}.pdf` |
+| A4 立牌 | 210mm x 297mm | 竖版 | `a4-menu-{theme}-{layout}.pdf` |
+
+### CLI 用法
+
+```bash
+npm install                                        # 首次安装 Puppeteer
+npm run pdf                                        # 导出全部（默认主题+布局）
+npm run pdf:wall                                   # 仅墙面菜单
+npm run pdf:a4                                     # 仅 A4 立牌
+node scripts/generate-pdf.js wall --theme cny      # 指定主题
+node scripts/generate-pdf.js a4 --layout b         # 指定布局
+```
+
+PDF 输出到 `output/` 目录。
 
 ---
 
@@ -169,10 +239,29 @@
 
 ### 更新流程
 
+#### 推荐：使用 `/更新菜单` 命令
+
+在 Claude Code 中执行 `/更新菜单`，自动完成全流程：
+
+1. 读取 CSV + 验证格式（列名严格匹配）
+2. 解析数据，按类别分组
+3. 对比 CSV 与 HTML 当前内容的差异
+4. **展示变更报告，等待用户确认**
+5. 确认后同时更新 `wall-menu.html` 和 `a4-menu.html`
+6. 验证结果 + 提醒手动检查事项
+
+#### 手动流程
+
 1. 编辑 CSV 文件（修改价格、品名、描述等）
 2. 参照 `CLAUDE.md` 中的 CSV → HTML 映射表
 3. **同时更新** `wall-menu.html` 和 `a4-menu.html` 中对应元素
 4. 浏览器预览验证显示效果
+
+#### 数据一致性原则
+
+- CSV 是唯一真实数据源，HTML 内容必须与 CSV 保持一致
+- 每次变更必须同时更新两个 HTML 文件
+- 变更前后应通过 Gallery 预览确认效果
 
 ### CSV 字段说明
 
@@ -216,8 +305,11 @@
 
 ## 技术约束
 
-- 零构建、零依赖、纯静态 HTML/CSS/JS
+- 菜单本身零构建、零依赖、纯静态 HTML/CSS/JS
 - CSS 拆分为共享 base + 格式专属（`@page` 规则互斥）
 - 主题切换通过 CSS 变量 + `data-theme` 属性
+- 布局变体通过 CSS 变量 + `data-layout` 属性，纯 CSS 实现
 - Gallery iframe 预览需 HTTP 服务
 - 两种菜单格式共享 `base.css` 和 `themes.css`
+- PDF 导出依赖 Puppeteer（`package.json` 中唯一 npm 依赖）
+- PDF 输出到 `output/` 目录（已 gitignore）

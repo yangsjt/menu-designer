@@ -16,6 +16,12 @@ python3 -m http.server 8000
 # 或直接查看单个菜单
 open wall-menu.html     # 墙面菜单
 open a4-menu.html       # A4 立牌菜单
+
+# 导出 PDF（首次需安装依赖）
+npm install             # 安装 Puppeteer
+npm run pdf             # 导出全部菜单
+npm run pdf:wall        # 仅导出墙面菜单
+npm run pdf:a4          # 仅导出 A4 立牌
 ```
 
 ---
@@ -31,25 +37,70 @@ open a4-menu.html       # A4 立牌菜单
 
 ---
 
+## 用户操作流程
+
+### 步骤 1：更新菜单数据
+
+编辑 `docs/动径咖啡店铺菜单 - 当前菜单.csv`，修改品名、价格、描述、店长推荐等字段。
+
+### 步骤 2：同步到 HTML（使用 Claude Code）
+
+在项目目录启动 Claude Code，执行 `/更新菜单` 命令：
+
+```
+/更新菜单
+```
+
+Claude 将自动：读取 CSV → 验证格式 → 展示变更报告 → **等待确认** → 同步 `wall-menu.html` 和 `a4-menu.html`。
+
+### 步骤 3：在 Gallery 预览
+
+```bash
+python3 -m http.server 8000
+# 打开 http://localhost:8000
+```
+
+在 Gallery 页面切换主题（5 套季节主题）和布局（Layout A/B），确认效果。
+
+### 步骤 4：导出 PDF
+
+```bash
+npm install                                        # 仅首次
+npm run pdf                                        # 导出全部（默认主题+布局）
+node scripts/generate-pdf.js wall --theme cny      # 指定主题
+node scripts/generate-pdf.js a4 --layout b         # 指定布局
+```
+
+PDF 输出到 `output/` 目录。
+
+---
+
 ## 项目结构
 
 ```
 menu-designer/
-├── index.html              ← Gallery 索引页（主题切换 + 双格式预览）
+├── index.html              ← Gallery 索引页（主题切换 + 布局切换 + 双格式预览）
 ├── wall-menu.html          ← 墙面菜单（1250×600 横版）
 ├── a4-menu.html            ← A4 立牌菜单（210×297 竖版）
 ├── css/
 │   ├── base.css            ← 共享：变量、reset、组件样式
 │   ├── themes.css          ← 5 套季节主题定义
-│   ├── wall-menu.css       ← 墙面菜单专属布局 + @page landscape
-│   └── a4-menu.css         ← A4 菜单专属布局 + @page portrait
+│   ├── wall-menu.css       ← 墙面菜单专属布局 + 布局变体 + @page landscape
+│   └── a4-menu.css         ← A4 菜单专属布局 + 布局变体 + @page portrait
 ├── js/
-│   └── theme-switcher.js   ← 主题切换 + localStorage + postMessage
+│   └── theme-switcher.js   ← 主题/布局切换 + localStorage + postMessage
+├── scripts/
+│   └── generate-pdf.js     ← Puppeteer PDF 导出工具
 ├── imgs/                   ← 产品摄影与品牌素材
 ├── docs/
 │   ├── PRD.md              ← 产品需求文档
-│   ├── 动径咖啡店铺菜单 - 当前菜单.csv  ← 菜单数据源
+│   ├── 动径咖啡店铺菜单 - 当前菜单.csv  ← 菜单数据源（唯一）
 │   └── ...                 ← 品牌资产文档
+├── output/                 ← PDF 导出输出目录（git ignored）
+├── .claude/
+│   └── commands/
+│       └── 更新菜单.md     ← Claude Code 斜杠命令：CSV → HTML 同步
+├── package.json            ← npm 脚本（PDF 导出）
 └── README.md
 ```
 
@@ -112,7 +163,9 @@ menu-designer/
 
 - 通过 `<iframe>` 嵌入两个菜单的缩放预览
 - 主题切换器：5 套季节主题实时切换
-- 每个格式卡片下方有「查看原尺寸」和「打印 PDF」按钮
+- 布局切换器：每个菜单独立的 Layout A/B 切换按钮
+- 每个格式卡片下方有「查看原尺寸」和「导出 PDF」按钮
+- 导出 PDF 弹窗引导用户使用 CLI 命令
 - 需通过 HTTP 服务预览（`python3 -m http.server`）
 
 ---
@@ -139,6 +192,36 @@ menu-designer/
 - **Gallery 页面**：点击主题色块按钮
 - **控制台**：`MenuTheme.apply('cny')` 或 `localStorage.setItem('menu-theme','summer')`
 - **持久化**：通过 localStorage，刷新后保持
+
+---
+
+## 布局变体系统
+
+主题全局共享（`data-theme`）、布局各菜单独立（`data-layout`），纯 CSS 实现。
+
+### 墙面菜单 Layout A vs B
+
+| 属性 | Layout A（默认） | Layout B（特调优先） |
+|------|-----------------|-------------------|
+| 列顺序 | 季节限定 → 特调 → 经典 | 特调 → 季节限定 → 经典 |
+| 特调网格 | 2 列 (430px) | 3 列 (480px) |
+| 季节限定列宽 | 290px | 250px |
+| 组合卡方向 | 纵向堆叠 | 横向并排 |
+
+### A4 菜单 Layout A vs B
+
+| 属性 | Layout A（默认） | Layout B（双栏紧凑） |
+|------|-----------------|-------------------|
+| 主体布局 | flex 纵向堆叠 | CSS Grid 双栏 (115px + 95px) |
+| 季节限定卡 | 横向 3 卡 | 纵向 3 卡 |
+| 特调+组合 | 独立区块 | 与季节限定同列（左栏） |
+| 经典+非咖啡+租赁 | 横排双列 | 右栏纵向堆叠 |
+
+### 切换方式
+
+- **Gallery 页面**：每个菜单卡片标题旁的 Layout A/B 切换按钮
+- **控制台**：`MenuLayout.apply('b')` / `MenuLayout.current()`
+- **持久化**：`wall-layout` / `a4-layout` 存储在 localStorage
 
 ---
 
@@ -196,16 +279,28 @@ menu-designer/
 
 ## 数据源
 
-菜单内容的唯一数据源为 `docs/动径咖啡店铺菜单 - 当前菜单.csv`，包含 33 行数据覆盖 6 个类别。
+菜单内容的**唯一数据源**为 `docs/动径咖啡店铺菜单 - 当前菜单.csv`，包含 33 行数据覆盖 6 个类别。
 
-### CSV → HTML 更新流程
+### 推荐流程：使用 `/更新菜单` 命令
+
+在 Claude Code 中执行 `/更新菜单`，自动完成 CSV 解析 → 差异对比 → 用户确认 → 双 HTML 同步。
+
+```
+/更新菜单
+```
+
+### 手动流程
 
 1. 修改 CSV 中的品名、价格、描述等字段
 2. 参照 [`CLAUDE.md`](CLAUDE.md) 中的映射表，定位 HTML 中对应元素
 3. **同时更新** `wall-menu.html` 和 `a4-menu.html` 中的文本内容
 4. 浏览器预览验证效果
 
-> 详细映射关系（每个 CSV 列对应哪个 HTML 元素）见 `CLAUDE.md`。
+### 数据一致性原则
+
+- CSV 是唯一真实数据源，HTML 内容必须与 CSV 保持一致
+- 每次变更必须同时更新两个 HTML 文件
+- 详细映射关系见 [`CLAUDE.md`](CLAUDE.md)
 
 ---
 
