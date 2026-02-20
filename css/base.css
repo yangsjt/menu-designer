@@ -57,7 +57,7 @@
 .header {
   height: 66px;
   background: var(--bg);
-  border-bottom: 2px solid var(--orange);
+  border-bottom: 2px solid var(--accent);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -86,7 +86,7 @@
   font-family: 'Noto Sans SC', sans-serif;
   font-size: 13px;
   font-weight: 500;
-  color: var(--orange);
+  color: var(--accent);
   letter-spacing: 0.12em;
 }
 .header-tagline .sub {
@@ -413,7 +413,7 @@
 /* ═══ FOOTER ═══ */
 .footer {
   height: 26px;
-  border-top: 1px solid var(--orange);
+  border-top: 1px solid var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;

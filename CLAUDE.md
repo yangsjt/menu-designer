@@ -76,8 +76,6 @@ menu-designer/
 - `.combo-mini` 左边框、`.combo-badge` 边框/文字色
 - `.combo-mini.highlight` 背景色
 - `.rental-price-big` 颜色、`.rental-tier strong` 颜色
-
-**保持 `var(--orange)` 不变的位置：**
 - `.header` 底边框
 - `.footer` 顶边框
 - `.header-tagline .district` 文字色
