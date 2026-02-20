@@ -34,6 +34,7 @@ body {
 .header {
   height: 14px;
   padding: 0 6px;
+  border-bottom-width: 1px;
 }
 .header-logo svg {
   width: 40px;
@@ -43,7 +44,9 @@ body {
 }
 .header-tagline .sub {
   font-size: 3.5px;
+  letter-spacing: 0.08em;
 }
+.header-tagline { gap: 2px; }
 
 /* ═══ Section Headers ═══ */
 .section-header {
@@ -51,11 +54,12 @@ body {
   padding: 1px 5px;
 }
 .section-title-cn {
-  font-size: 5px;
+  font-size: 5.5px;
 }
 .section-title-en {
   font-size: 4px;
 }
+.section-header > div { gap: 2px; }
 
 /* ═══ Main Content ═══ */
 .main-body {
@@ -79,7 +83,7 @@ body {
 .seasonal-card {
   flex: 1;
   border-radius: 3px;
-  min-height: 38px;
+  min-height: 40px;
 }
 .seasonal-card.premium {
   outline-width: 1px;
@@ -129,7 +133,7 @@ body {
   font-size: 3.5px;
 }
 .sig-item .price {
-  font-size: 6px;
+  font-size: 6.5px;
 }
 .sig-item .desc {
   font-size: 3px;
@@ -155,24 +159,25 @@ body {
   border-left-width: 2px;
   gap: 2px;
 }
+.combo-mini-info { gap: 1px; }
 .combo-mini .combo-tag {
   font-size: 2.5px;
 }
 .combo-mini .combo-title {
-  font-size: 4.5px;
+  font-size: 5px;
 }
 .combo-mini .combo-desc {
-  font-size: 2.5px;
+  font-size: 3px;
   line-height: 1.3;
 }
 .combo-mini .combo-badge {
-  font-size: 5px;
+  font-size: 5.5px;
   padding: 1px 3px;
   border-radius: 2px;
   align-self: flex-end;
 }
 .combo-mini.highlight .combo-badge {
-  font-size: 6px;
+  font-size: 6.5px;
 }
 
 /* ─── 经典日常 + 非咖啡 (横排双列) ─── */
@@ -202,7 +207,7 @@ body {
 .compact-list .pl-row.upgrade .pl-name,
 .compact-list .pl-row.upgrade .pl-price { font-size: 3.5px; }
 .pl-spec { font-size: 2.5px; }
-.pl-dots { margin-bottom: 1px; }
+.pl-dots { margin-bottom: 1px; min-width: 2px; }
 .pl-row { gap: 1px; }
 .pl-row.upgrade { padding-left: 2px; }
 .pl-divider { margin: 1px 0; }
@@ -235,7 +240,7 @@ body {
 }
 .rental-slogan { font-size: 3.5px; margin-bottom: 1px; }
 .rental-price-big { font-size: 8px; margin-bottom: 2px; }
-.rental-tiers { gap: 4px; margin-bottom: 2px; }
+.rental-tiers { gap: 3px; margin-bottom: 2px; }
 .rental-tier { font-size: 3px; }
 .rental-tier strong { font-size: 5px; }
 .rental-process { font-size: 2.5px; padding-top: 2px; }
