@@ -173,6 +173,8 @@
     object-fit: cover;
     object-position: center 30%;   /* 偏上裁剪，命中杯身 */
     display: block;
+    transform: scale(1.1);         /* 放大 10% 裁掉右下角 Gemini 水印 */
+    transform-origin: center 30%;
   }
   /* 底部渐变蒙版 + 文字 */
   .seasonal-card .card-body {
@@ -206,7 +208,7 @@
   /* 价格：辅助信息，不抢焦点 */
   .seasonal-card .price {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 14px;
+    font-size: 15px;
     color: rgba(255,255,255,0.50);
     text-align: right;
     line-height: 1;
@@ -273,7 +275,7 @@
   }
   .sig-item .price {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
+    font-size: 17px;
     color: var(--orange);
     white-space: nowrap;
     line-height: 1;
@@ -285,7 +287,7 @@
     line-height: 1.35;
   }
   .sig-item.accent .price {
-    color: #ff7a45;
+    color: var(--orange);
   }
 
   /* 能量组合 迷你横卡 */
@@ -806,7 +808,7 @@
           <div class="combo-mini-info">
             <div class="combo-tag">WUTONG TRAILS &amp; COFFEE EXPERIENCE</div>
             <div class="combo-title">梧桐区双人探索套餐</div>
-            <div class="combo-desc">2杯美式或拿铁+2辆小布+1小时体验</div>
+            <div class="combo-desc">2杯拿铁+2辆小布+1小时体验</div>
           </div>
           <div class="combo-badge">99</div>
         </div>
@@ -921,6 +923,13 @@
               <span class="pl-price">32</span>
             </div>
             <div class="pl-row">
+              <span class="pl-name">红茶 / 绿茶</span>
+              <span class="pl-en">&nbsp;Black/Green Tea</span>
+              <span class="pl-spec">Hot</span>
+              <span class="pl-dots"></span>
+              <span class="pl-price">32</span>
+            </div>
+            <div class="pl-row">
               <span class="pl-name">肉桂红枣茶</span>
               <span class="pl-en">&nbsp;Cinnamon Jujube Tea</span>
               <span class="pl-spec">Hot</span>
@@ -933,13 +942,6 @@
               <span class="pl-spec">Hot</span>
               <span class="pl-dots"></span>
               <span class="pl-price">35</span>
-            </div>
-            <div class="pl-row">
-              <span class="pl-name">红茶 / 绿茶</span>
-              <span class="pl-en">&nbsp;Black/Green Tea</span>
-              <span class="pl-spec">Hot</span>
-              <span class="pl-dots"></span>
-              <span class="pl-price">32</span>
             </div>
           </div>
 
@@ -990,6 +992,9 @@
     <span class="sep">|</span>
     <span class="footer-icon">👍</span>
     <span class="footer-main"><strong>店长推荐</strong></span>
+    <span class="sep">|</span>
+    <span class="footer-icon">🔄</span>
+    <span class="footer-main"><strong>租车骑行后，回店续杯享半价</strong></span>
     <span class="footer-currency">货币单位为人民币 (RMB)</span>
   </footer>
 

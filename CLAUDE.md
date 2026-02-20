@@ -67,7 +67,7 @@ CSV 包含 33 行菜品数据（序号 1–28 + 31–33），覆盖 6 个类别�
 | I 店长推荐 | `.cn-name` 后追加 👍 span | `黑芝麻维也纳 👍` |
 
 **特殊规则：**
-- 价格 ≥ 38 且非手冲 → 加 `.accent` 类（橙色渐变背景，价格色 `#ff7a45`）
+- 价格 ≥ 38 且非手冲 → 加 `.accent` 类（橙色渐变背景，价格色 `var(--orange)`）
 - 精品手冲不加 `.accent`（保持素底以区分风格）
 
 ### 类别 3：能量组合（CSV 序号 11–13）
@@ -221,6 +221,7 @@ Footer 内容来自 CSV 备注区，非数据行：
 | ☕ | 自带杯减3 | `.footer-icon` + `.footer-main strong`（第 2 组） |
 | 🐾 | 宠物友好 | `.footer-icon` + `.footer-main strong`（第 3 组） |
 | 👍 | 店长推荐 | `.footer-icon` + `.footer-main strong`（第 4 组） |
+| 🔄 | 租车骑行后，回店续杯享半价 | `.footer-icon` + `.footer-main strong`（第 5 组） |
 | — | 货币单位为人民币 (RMB) | `.footer-currency` |
 
 **结构规则：** 每组为 `<span class="footer-icon">` + `<span class="footer-main">`，emoji 在前文字在后，组间用 `<span class="sep">\|</span>` 分隔。
