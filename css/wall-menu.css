@@ -124,9 +124,9 @@ html.in-iframe .menu-board {
   align-items: flex-start;
 }
 
-/* ─── Print: 1250mm × 600mm landscape ─── */
+/* ─── Print: 1250mm × 600mm ─── */
 @page {
-  size: 1250mm 600mm landscape;
+  size: 1250mm 600mm;
   margin: 0;
 }
 @media print {
@@ -135,15 +135,16 @@ html.in-iframe .menu-board {
     print-color-adjust: exact !important;
   }
   body {
-    background: none;
+    background: var(--bg);
     padding: 0;
     margin: 0;
     display: block;
   }
   .menu-board {
-    width: 1250mm;
-    height: 600mm;
+    width: 1250px;
+    height: 600px;
     transform: none !important;
+    zoom: 3.7795;
     margin: 0;
   }
 }

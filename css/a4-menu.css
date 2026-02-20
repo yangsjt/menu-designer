@@ -311,9 +311,9 @@ html.in-iframe .menu-board {
 [data-layout="b"] .rental-price-big { font-size: 6px; }
 [data-layout="b"] .rental-tier strong { font-size: 4px; }
 
-/* ─── Print: A4 portrait ─── */
+/* ─── Print: A4 210mm × 297mm ─── */
 @page {
-  size: 210mm 297mm portrait;
+  size: 210mm 297mm;
   margin: 0;
 }
 @media print {
@@ -322,15 +322,16 @@ html.in-iframe .menu-board {
     print-color-adjust: exact !important;
   }
   body {
-    background: none;
+    background: var(--bg);
     padding: 0;
     margin: 0;
     display: block;
   }
   .menu-board {
-    width: 210mm;
-    height: 297mm;
+    width: 210px;
+    height: 297px;
     transform: none !important;
+    zoom: 3.7795;
     margin: 0;
   }
 }

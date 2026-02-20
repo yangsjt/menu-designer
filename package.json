@@ -1,0 +1,14 @@
+{
+  "name": "menu-designer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "动径 MovePath 咖啡菜单设计系统",
+  "scripts": {
+    "pdf": "node scripts/generate-pdf.js all",
+    "pdf:wall": "node scripts/generate-pdf.js wall",
+    "pdf:a4": "node scripts/generate-pdf.js a4"
+  },
+  "dependencies": {
+    "puppeteer": "^24.37.5"
+  }
+}
