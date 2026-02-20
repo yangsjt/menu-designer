@@ -122,6 +122,53 @@ html.in-iframe .menu-board {
 [data-layout="b"] .combo-mini {
   flex-direction: column;
   align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+  background-size: cover;
+  background-position: center bottom;
+  border-left: none;
+}
+[data-layout="b"] .combo-mini::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.88) 20%, transparent 75%);
+  z-index: 0;
+}
+[data-layout="b"] .combo-mini-info {
+  position: relative;
+  z-index: 1;
+}
+[data-layout="b"] .combo-badge {
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  z-index: 1;
+}
+
+/* Layout B: 能量组合白色文字 */
+[data-layout="b"] .combo-mini .combo-tag   { color: rgba(255,255,255,0.65); }
+[data-layout="b"] .combo-mini .combo-title { color: #fff; }
+[data-layout="b"] .combo-mini .combo-desc  { color: rgba(255,255,255,0.75); }
+[data-layout="b"] .combo-mini .combo-badge {
+  background: rgba(0,0,0,0.3);
+  border-color: rgba(255,255,255,0.5);
+  color: var(--accent);
+}
+[data-layout="b"] .combo-mini.highlight .combo-badge {
+  background: rgba(0,0,0,0.6);
+}
+
+/* Layout B: 能量组合背景图 */
+[data-layout="b"] .combo-mini:nth-child(1) { background-image: url('../imgs/脆墩墩.png'); }
+[data-layout="b"] .combo-mini:nth-child(2) {
+  background-image: url('../imgs/巴斯克.png');
+  background-position: center 30%;
+}
+[data-layout="b"] .combo-mini:nth-child(3) {
+  background-image: url('../imgs/双人探索.png');
+  border: 2px solid var(--accent);
 }
 
 /* ─── Print: 1250mm × 600mm ─── */
