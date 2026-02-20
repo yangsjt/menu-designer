@@ -37,7 +37,7 @@
 
   /* ─── Menu Board: 1200×600 横版 ─── */
   .menu-board {
-    width: 1200px;
+    width: 1250px;
     height: 600px;
     background: var(--bg);
     color: var(--text-1);
@@ -53,18 +53,23 @@
   /* ─── Section Header Bar ─── */
   .section-header {
     background: var(--surface-2);
-    padding: 5px 12px;
+    padding: 3px 12px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     flex-shrink: 0;
-    height: 28px;
+    height: 22px;
   }
   .section-header.orange-bar {
     background: var(--orange);
+    height: 26px;
+  }
+  .section-header > div {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
   }
   .section-title-cn {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.05em;
     line-height: 1;
@@ -76,63 +81,48 @@
     opacity: 0.7;
     line-height: 1;
   }
-  .section-price-hint {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 10px;
-    color: var(--text-3);
-    letter-spacing: 0.06em;
-    white-space: nowrap;
-  }
-  .orange-bar .section-price-hint {
-    color: rgba(255,255,255,0.75);
-  }
 
   /* ═══════════════════════════════════
-     A · HEADER（72px）
+     A · HEADER（68px）
   ═══════════════════════════════════ */
   .header {
-    height: 72px;
+    height: 66px;
     background: var(--bg);
     border-bottom: 2px solid var(--orange);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px 0 0;   /* 左边距靠 header-logo 内部白边控制 */
+    padding: 0 16px;
     flex-shrink: 0;
   }
-  /* Logo 容器：裁掉 SVG viewBox 上下多余白区，留出 VI 保护间距 */
   .header-logo {
-    align-self: stretch;      /* 撑满 header 高度 */
-    overflow: hidden;          /* 裁掉 SVG 超出部分 */
     display: flex;
     align-items: center;
-    padding-left: 16px;        /* VI 左侧保护间距 */
     flex-shrink: 0;
   }
   .header-logo svg {
-    width: 140px;              /* 缩小使 logo mark 恰好居中于 72px */
+    width: 117px;
     height: auto;
     display: block;
     flex-shrink: 0;
   }
   .header-tagline {
-    text-align: right;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
   }
   .header-tagline .district {
     font-family: 'Noto Sans SC', sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
     color: var(--orange);
-    letter-spacing: 0.15em;
-    display: block;
+    letter-spacing: 0.12em;
   }
   .header-tagline .sub {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 10px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.15em;
     color: var(--text-3);
-    display: block;
-    margin-top: 3px;
   }
 
   /* ─── Main Body: 3列横排 ─── */
@@ -187,27 +177,27 @@
   .seasonal-card .card-body {
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    padding: 22px 10px 8px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.82) 50%);
+    padding: 28px 10px 8px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.82) 45%);
     display: flex;
     flex-direction: column;
   }
   .seasonal-card .cn-name {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
     color: #ffffff;
     line-height: 1.2;
   }
   .seasonal-card .en-name {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 8.5px;
+    font-size: 10px;
     color: var(--orange);
     letter-spacing: 0.08em;
     margin-top: 2px;
     line-height: 1;
   }
   .seasonal-card .desc {
-    font-size: 7.5px;
+    font-size: 9px;
     color: rgba(255,255,255,0.62);
     line-height: 1.35;
     margin-top: 3px;
@@ -215,7 +205,7 @@
   /* 价格：辅助信息，不抢焦点 */
   .seasonal-card .price {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     color: rgba(255,255,255,0.50);
     text-align: right;
     line-height: 1;
@@ -244,10 +234,10 @@
   }
   .sig-item {
     background: var(--bg);
-    padding: 5px 7px;
+    padding: 6px 8px;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
     position: relative;
   }
   .sig-item.accent {
@@ -265,7 +255,7 @@
     min-width: 0;
   }
   .sig-item .cn-name {
-    font-size: 10.5px;
+    font-size: 13px;
     font-weight: 700;
     color: var(--text-1);
     white-space: nowrap;
@@ -273,7 +263,7 @@
     text-overflow: ellipsis;
   }
   .sig-item .en-name {
-    font-size: 8px;
+    font-size: 10px;
     color: var(--text-3);
     white-space: nowrap;
     overflow: hidden;
@@ -282,14 +272,14 @@
   }
   .sig-item .price {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     color: var(--orange);
     white-space: nowrap;
     line-height: 1;
     flex-shrink: 0;
   }
   .sig-item .desc {
-    font-size: 8px;
+    font-size: 10px;
     color: var(--text-3);
     line-height: 1.35;
   }
@@ -301,15 +291,15 @@
   .combo-mini-list {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding: 6px 10px 8px;
+    gap: 4px;
+    padding: 4px 10px 4px;
     flex: 1;
   }
   .combo-mini {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 7px 10px;
+    padding: 6px 10px;
     border-radius: 6px;
     border-left: 3px solid var(--orange);
     background: var(--surface);
@@ -328,7 +318,7 @@
   }
   .combo-mini .combo-tag {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 8px;
+    font-size: 9px;
     letter-spacing: 0.12em;
     color: var(--text-3);
     text-transform: uppercase;
@@ -338,7 +328,7 @@
     color: rgba(255,255,255,0.65);
   }
   .combo-mini .combo-title {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
     color: var(--text-1);
     line-height: 1.2;
@@ -347,7 +337,7 @@
     color: #fff;
   }
   .combo-mini .combo-desc {
-    font-size: 8.5px;
+    font-size: 10px;
     color: var(--text-3);
     line-height: 1.4;
   }
@@ -360,7 +350,7 @@
     border: 1px solid var(--orange);
     color: var(--orange);
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     padding: 2px 8px;
     border-radius: 4px;
     letter-spacing: 0.05em;
@@ -371,11 +361,11 @@
     background: rgba(0,0,0,0.2);
     border-color: rgba(255,255,255,0.5);
     color: #fff;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   /* ═══════════════════════════════════
-     Col 3 · 经典日常 + 非咖啡（480px，内部两子列）
+     Col 3 · 经典日常 + 非咖啡（480px）
   ═══════════════════════════════════ */
   .col-classic {
     flex: 1;
@@ -385,18 +375,8 @@
   }
   .classic-inner {
     display: flex;
-    flex-direction: row;
     flex: 1;
     overflow: hidden;
-  }
-  .classic-sub {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-  .classic-sub + .classic-sub {
-    border-left: 1px solid var(--divider);
   }
 
   /* Price list */
@@ -414,7 +394,7 @@
     min-width: 0;
   }
   .pl-name {
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 500;
     color: var(--text-2);
     white-space: nowrap;
@@ -422,7 +402,7 @@
     line-height: 1.5;
   }
   .pl-en {
-    font-size: 7.5px;
+    font-size: 9px;
     color: var(--text-3);
     white-space: nowrap;
     flex-shrink: 0;
@@ -436,7 +416,7 @@
   }
   .pl-price {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     color: var(--text-2);
     white-space: nowrap;
     flex-shrink: 0;
@@ -447,12 +427,12 @@
   .pl-row.upgrade .pl-name,
   .pl-row.upgrade .pl-en,
   .pl-row.upgrade .pl-price {
-    font-size: 8px;
+    font-size: 10px;
     color: var(--text-3);
   }
   .pl-row.upgrade .pl-price {
     font-family: 'Noto Sans SC', sans-serif;
-    font-size: 8px;
+    font-size: 10px;
   }
   .pl-divider {
     border: none;
@@ -461,46 +441,41 @@
   }
 
   /* ═══════════════════════════════════
-     G · FOOTER（48px）
+     G · FOOTER（26px · 单行）
   ═══════════════════════════════════ */
   .footer {
-    height: 48px;
+    height: 26px;
     border-top: 1px solid var(--orange);
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 6px;
     flex-shrink: 0;
   }
-  .footer-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1px;
-    padding: 0 6px;
-    text-align: center;
-  }
-  .footer-item + .footer-item {
-    border-left: 1px solid var(--divider);
+  .footer .sep {
+    color: var(--text-3);
+    font-size: 10px;
   }
   .footer-icon {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1;
+    margin-right: 2px;
   }
   .footer-main {
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 700;
     color: var(--text-2);
     letter-spacing: 0.04em;
-    line-height: 1.3;
+    line-height: 1.2;
   }
   .footer-main strong {
-    color: var(--orange);
+    color: inherit;
   }
   .footer-sub {
-    font-size: 7.5px;
+    font-size: 9px;
     color: var(--text-3);
     line-height: 1.2;
+    margin-left: 2px;
   }
 
   /* ─── 经典日常+非咖啡 合并列（紧凑） ─── */
@@ -514,84 +489,15 @@
     gap: 2px;
     padding: 4px 8px 6px;
   }
-  .compact-list .pl-name { font-size: 8.5px; }
-  .compact-list .pl-en   { font-size: 7px; }
-  .compact-list .pl-price { font-size: 12px; }
+  .compact-list .pl-name { font-size: 13px; }
+  .compact-list .pl-en   { font-size: 10px; }
+  .compact-list .pl-price { font-size: 16px; }
   .compact-list .pl-row.upgrade .pl-name,
-  .compact-list .pl-row.upgrade .pl-price { font-size: 7.5px; }
-
-  /* ─── 自行车租赁列 ─── */
-  .rental-sub {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    border-left: 1px solid var(--divider);
-    overflow: hidden;
-  }
-  .rental-img-wrap {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-  }
-  .rental-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 20%;
-    display: block;
-  }
-  .rental-overlay {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 10px 10px 8px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.92) 35%);
-  }
-  .rental-slogan {
-    font-size: 9px;
-    font-weight: 700;
-    color: var(--text-1);
-    line-height: 1.3;
-    margin-bottom: 3px;
-  }
-  .rental-price-big {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    color: var(--orange);
-    line-height: 1;
-    margin-bottom: 6px;
-    letter-spacing: 0.04em;
-  }
-  .rental-tiers {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 5px;
-  }
-  .rental-tier {
-    font-size: 7.5px;
-    color: var(--text-2);
-    line-height: 1.4;
-  }
-  .rental-tier strong {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 12px;
-    color: var(--orange);
-  }
-  .rental-process {
-    font-size: 7px;
-    color: var(--text-3);
-    line-height: 1.5;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 4px;
-  }
-  .rental-process strong {
-    color: var(--text-2);
-    font-size: 7.5px;
-    letter-spacing: 0.04em;
-  }
+  .compact-list .pl-row.upgrade .pl-price { font-size: 10px; }
 
   /* ─── Print ─── */
   @page {
-    size: 1200mm 600mm landscape;
+    size: 1250mm 600mm landscape;
     margin: 0;
   }
   @media print {
@@ -606,7 +512,7 @@
       display: block;
     }
     .menu-board {
-      width: 1200mm;
+      width: 1250mm;
       height: 600mm;
       transform: none !important;
       margin: 0;
@@ -621,8 +527,8 @@
   <!-- ═══ A · HEADER ═══ -->
   <header class="header">
     <div class="header-logo">
-      <!-- LOGO_WHITE: viewBox 0 0 716 630 — 适用深色背景 -->
-      <svg viewBox="0 0 716 630" xmlns="http://www.w3.org/2000/svg">
+      <!-- LOGO_WHITE: viewBox cropped to content bounds -->
+      <svg viewBox="95 168 560 270" xmlns="http://www.w3.org/2000/svg">
         <path fill="#FFFFFF" d="m650.2 302.6c0-7.2-1-14.3-3-21.2-1.9-6.7-4.7-13-8.4-18.9-3.6-5.8-8-11-13.1-15.6-5.1-4.7-10.8-8.6-16.9-11.8-6.4-3.2-13.1-5.6-20.1-7.1-3.9-0.8-7.9-1.3-11.9-1.9q-2.4-0.4-4.9-0.8-3.3-0.5-6.6-1.1-4.1-0.6-8.2-1.3c-96-12-191-30.6-286.5-45.9q-2.2-0.3-4.4-0.7c-10-1.6-20-3.2-30.2-3.2-71.5 0-129.4 58-129.4 129.5 0 71.4 57.9 129.4 129.4 129.4 17.7 0 35.7-4.2 53.2-7q78.6-12.5 157.2-25.1 39.3-6.3 78.6-12.6c24.3-3.8 51.7-5 74.9-13.5 8.7-3.1 16.8-7.7 23.9-13.7 14-11.8 23.1-28.5 25.6-46.6q0.8-5.4 0.8-10.9z"/>
         <path fill="#000000" d="m544.5 301.5v-10.4l-5.1 8.6h-1.9l-5-8.4v10.2h-3.8v-17.3h3.3l6.5 10.7 6.4-10.7h3.3v17.3z"/>
         <path fill="#000000" fill-rule="evenodd" d="m551.3 292.8c0-5.1 4-8.9 9.4-8.9 5.5 0 9.5 3.8 9.5 8.9 0 5.2-4 9-9.5 9-5.4 0-9.4-3.8-9.4-9zm14.9 0c0-3.3-2.4-5.5-5.5-5.5-3 0-5.4 2.2-5.4 5.5 0 3.3 2.4 5.6 5.4 5.6 3.1 0 5.5-2.3 5.5-5.6z"/>
@@ -657,7 +563,6 @@
           <div class="section-title-cn">季节限定</div>
           <div class="section-title-en">SEASONAL SPECIALS</div>
         </div>
-        <div class="section-price-hint">42–58 RMB</div>
       </div>
       <div class="seasonal-cards">
 
@@ -712,7 +617,6 @@
           <div class="section-title-cn">动径特调</div>
           <div class="section-title-en">SIGNATURE SPECIALS</div>
         </div>
-        <div class="section-price-hint">38–42 RMB</div>
       </div>
       <div class="sig-grid">
 
@@ -817,7 +721,6 @@
           <div class="section-title-cn">能量组合</div>
           <div class="section-title-en">ENERGY COMBO</div>
         </div>
-        <div class="section-price-hint">立减 5元 / 特惠 58</div>
       </div>
       <div class="combo-mini-list">
 
@@ -851,7 +754,7 @@
       </div>
     </div>
 
-    <!-- ── Col 3 · 经典日常 + 非咖啡 + 自行车租赁 ── -->
+    <!-- ── Col 3 · 经典日常 + 非咖啡 ── -->
     <div class="col-classic">
       <div class="classic-inner">
 
@@ -864,7 +767,6 @@
               <div class="section-title-cn">经典日常</div>
               <div class="section-title-en">DAILY DRINKS</div>
             </div>
-            <div class="section-price-hint">25–35</div>
           </div>
           <div class="price-list compact-list">
             <div class="pl-row">
@@ -922,7 +824,6 @@
               <div class="section-title-cn">非咖啡类</div>
               <div class="section-title-en">NON-COFFEE</div>
             </div>
-            <div class="section-price-hint">5–32</div>
           </div>
           <div class="price-list compact-list">
             <div class="pl-row">
@@ -965,33 +866,6 @@
 
         </div>
 
-        <!-- 右子列：自行车租赁 -->
-        <div class="rental-sub">
-          <div class="section-header">
-            <div>
-              <div class="section-title-cn">自行车租赁</div>
-              <div class="section-title-en">BIKE RENTAL</div>
-            </div>
-            <div class="section-price-hint">¥1.5 / 15min</div>
-          </div>
-          <div class="rental-img-wrap">
-            <img src="imgs/brompton-rental.jpg" alt="小布租赁">
-            <div class="rental-overlay">
-              <div class="rental-slogan">用共享单车的价格租小布</div>
-              <div class="rental-price-big">¥ 1.5 / 15MIN</div>
-              <div class="rental-tiers">
-                <div class="rental-tier">1H 尝鲜<br><strong>¥35</strong></div>
-                <div class="rental-tier">4H 半日<br><strong>¥88</strong></div>
-                <div class="rental-tier">24H 封顶<br><strong>¥158</strong></div>
-              </div>
-              <div class="rental-process">
-                <strong>PROCESS / 流程</strong><br>
-                扫码实名核验 &gt; 缴纳押金 ¥4,000 &gt; 凭取车码出发
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
 
@@ -999,21 +873,14 @@
 
   <!-- ═══ G · FOOTER ═══ -->
   <footer class="footer">
-    <div class="footer-item">
-      <div class="footer-icon">🚲</div>
-      <div class="footer-main"><strong>骑行到店减 3 元</strong></div>
-      <div class="footer-sub">Cycling Discount</div>
-    </div>
-    <div class="footer-item">
-      <div class="footer-icon">🚲</div>
-      <div class="footer-main"><strong>租小布享 85 折</strong></div>
-      <div class="footer-sub">Brompton Rental Benefit</div>
-    </div>
-    <div class="footer-item">
-      <div class="footer-icon">🐾</div>
-      <div class="footer-main"><strong>PET FRIENDLY</strong></div>
-      <div class="footer-sub">宠物友好</div>
-    </div>
+    <span class="footer-icon">🚲</span>
+    <span class="footer-main"><strong>骑行到店减 3 元</strong></span>
+    <span class="sep">|</span>
+    <span class="footer-icon">☕</span>
+    <span class="footer-main"><strong>自带杯减 3 元</strong></span>
+    <span class="sep">|</span>
+    <span class="footer-icon">🐾</span>
+    <span class="footer-main"><strong>宠物友好</strong></span>
   </footer>
 
 </div>
