@@ -1,0 +1,336 @@
+/* ═══════════════════════════════════
+   a4-menu.css — A4 立牌菜单专属布局
+   画布：210 × 297 mm（1mm = 1px）
+   预览缩放：scale(3.5) → 735 × 1040 px
+═══════════════════════════════════ */
+
+/* ─── Screen Preview ─── */
+body {
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Noto Sans SC', system-ui, sans-serif;
+}
+
+/* ─── A4 Menu Board ─── */
+.menu-board {
+  width: 210px;
+  height: 297px;
+  background: var(--bg);
+  color: var(--text-1);
+  overflow: hidden;
+  transform-origin: top center;
+  transform: scale(3.5);
+  margin-bottom: calc(297px * 2.5);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+/* ═══ HEADER (14mm) ═══ */
+.header {
+  height: 14px;
+  padding: 0 6px;
+}
+.header-logo svg {
+  width: 40px;
+}
+.header-tagline .district {
+  font-size: 4.5px;
+}
+.header-tagline .sub {
+  font-size: 3.5px;
+}
+
+/* ═══ Section Headers ═══ */
+.section-header {
+  height: 9px;
+  padding: 1px 5px;
+}
+.section-title-cn {
+  font-size: 5px;
+}
+.section-title-en {
+  font-size: 4px;
+}
+
+/* ═══ Main Content ═══ */
+.main-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ─── 季节限定 (横排3卡) ─── */
+.col-seasonal {
+  flex: 0 0 auto;
+  border-right: none;
+  border-bottom: 1px solid var(--divider);
+}
+.seasonal-cards {
+  flex-direction: row;
+  gap: 2px;
+  padding: 2px 4px;
+}
+.seasonal-card {
+  flex: 1;
+  border-radius: 3px;
+  min-height: 38px;
+}
+.seasonal-card.premium {
+  outline-width: 1px;
+  outline-offset: -1px;
+}
+.seasonal-card .card-body {
+  padding: 12px 4px 3px;
+}
+.seasonal-card .cn-name {
+  font-size: 5px;
+}
+.seasonal-card .en-name {
+  font-size: 3.5px;
+  margin-top: 1px;
+}
+.seasonal-card .desc {
+  font-size: 3px;
+  margin-top: 1px;
+  line-height: 1.3;
+}
+.seasonal-card .price {
+  font-size: 6px;
+  margin-top: 2px;
+}
+
+/* ─── 动径特调 (2×4 grid) ─── */
+.col-sig {
+  flex: 0 0 auto;
+  border-right: none;
+  border-bottom: 1px solid var(--divider);
+}
+.sig-grid {
+  padding: 2px 4px;
+  gap: 1px;
+}
+.sig-item {
+  padding: 2px 3px;
+  gap: 1px;
+}
+.sig-item.accent {
+  border-radius: 2px;
+}
+.sig-item .cn-name {
+  font-size: 5px;
+}
+.sig-item .en-name {
+  font-size: 3.5px;
+}
+.sig-item .price {
+  font-size: 6px;
+}
+.sig-item .desc {
+  font-size: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sig-item-top {
+  gap: 2px;
+}
+
+/* ─── 能量组合 (横排3卡) ─── */
+.combo-mini-list {
+  flex-direction: row;
+  gap: 2px;
+  padding: 2px 4px;
+}
+.combo-mini {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 3px;
+  border-radius: 2px;
+  border-left-width: 2px;
+  gap: 2px;
+}
+.combo-mini .combo-tag {
+  font-size: 2.5px;
+}
+.combo-mini .combo-title {
+  font-size: 4.5px;
+}
+.combo-mini .combo-desc {
+  font-size: 2.5px;
+  line-height: 1.3;
+}
+.combo-mini .combo-badge {
+  font-size: 5px;
+  padding: 1px 3px;
+  border-radius: 2px;
+  align-self: flex-end;
+}
+.combo-mini.highlight .combo-badge {
+  font-size: 6px;
+}
+
+/* ─── 经典日常 + 非咖啡 (横排双列) ─── */
+.col-classic {
+  flex: 0 0 auto;
+  border-bottom: 1px solid var(--divider);
+}
+.classic-inner {
+  flex-direction: row;
+}
+.classic-sub-drinks {
+  flex: 1;
+  border-right: 1px solid var(--divider);
+}
+.classic-sub-drinks:last-child {
+  border-right: none;
+}
+
+/* Price list compact sizing */
+.price-list {
+  padding: 2px 4px;
+  gap: 1px;
+}
+.compact-list .pl-name { font-size: 5px; }
+.compact-list .pl-en   { font-size: 3.5px; }
+.compact-list .pl-price { font-size: 6px; }
+.compact-list .pl-row.upgrade .pl-name,
+.compact-list .pl-row.upgrade .pl-price { font-size: 3.5px; }
+.pl-spec { font-size: 2.5px; }
+.pl-dots { margin-bottom: 1px; }
+.pl-row { gap: 1px; }
+.pl-row.upgrade { padding-left: 2px; }
+.pl-divider { margin: 1px 0; }
+
+/* ─── 自行车租赁 (全宽横条) ─── */
+.rental-sub {
+  flex: 0 0 auto;
+  border-left: none;
+  flex-direction: row;
+}
+.rental-img-wrap {
+  flex: 0 0 70px;
+  border-radius: 0;
+  min-height: 30px;
+}
+.rental-img-wrap::before {
+  width: 8px;
+}
+.rental-info-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2px 4px;
+}
+.rental-overlay {
+  position: static;
+  background: none;
+  padding: 0;
+}
+.rental-slogan { font-size: 3.5px; margin-bottom: 1px; }
+.rental-price-big { font-size: 8px; margin-bottom: 2px; }
+.rental-tiers { gap: 4px; margin-bottom: 2px; }
+.rental-tier { font-size: 3px; }
+.rental-tier strong { font-size: 5px; }
+.rental-process { font-size: 2.5px; padding-top: 2px; }
+.rental-process strong { font-size: 3px; }
+
+/* ═══ FOOTER (7mm) ═══ */
+.footer {
+  height: 7px;
+  gap: 2px;
+}
+.footer-icon { font-size: 3.5px; margin-right: 0.5px; }
+.footer-main { font-size: 3px; }
+.footer .sep { font-size: 3px; }
+.footer-currency { font-size: 2.5px; right: 4px; }
+
+/* ─── iframe 嵌入模式：原始尺寸，无预览缩放 ─── */
+html.in-iframe body {
+  background: none;
+  padding: 0;
+  min-height: auto;
+}
+html.in-iframe .menu-board {
+  transform: none;
+  margin-bottom: 0;
+}
+
+/* ═══ Layout B: Two-Column Split ═══ */
+[data-layout="b"] .main-body {
+  display: grid;
+  grid-template-columns: 115px 1fr;
+  grid-template-rows: auto auto;
+}
+[data-layout="b"] .col-seasonal {
+  grid-column: 1;
+  grid-row: 1;
+  border-bottom: none;
+  border-right: 1px solid var(--divider);
+}
+[data-layout="b"] .col-sig {
+  grid-column: 1;
+  grid-row: 2;
+  border-bottom: none;
+  border-right: 1px solid var(--divider);
+}
+[data-layout="b"] .col-classic {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  border-bottom: none;
+}
+[data-layout="b"] .seasonal-cards {
+  flex-direction: column;
+  gap: 2px;
+}
+[data-layout="b"] .classic-inner {
+  flex-direction: column;
+}
+[data-layout="b"] .classic-sub-drinks {
+  border-right: none;
+  border-bottom: 1px solid var(--divider);
+}
+[data-layout="b"] .classic-sub-drinks:last-child {
+  border-bottom: none;
+}
+[data-layout="b"] .rental-sub {
+  flex-direction: column;
+}
+[data-layout="b"] .rental-img-wrap {
+  flex: 0 0 20px;
+}
+[data-layout="b"] .rental-info-wrap {
+  padding: 1px 3px;
+}
+[data-layout="b"] .rental-price-big { font-size: 6px; }
+[data-layout="b"] .rental-tier strong { font-size: 4px; }
+
+/* ─── Print: A4 portrait ─── */
+@page {
+  size: 210mm 297mm portrait;
+  margin: 0;
+}
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body {
+    background: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+  }
+  .menu-board {
+    width: 210mm;
+    height: 297mm;
+    transform: none !important;
+    margin: 0;
+  }
+}

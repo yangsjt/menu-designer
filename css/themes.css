@@ -1,0 +1,33 @@
+/* ═══════════════════════════════════
+   themes.css — 5 套季节主题定义
+═══════════════════════════════════ */
+
+/* 默认（品牌橙）— 无需覆盖，使用 base.css 中的 :root 值 */
+[data-theme="default"] {
+  --accent:     #f05f22;
+  --accent-dim: rgba(240,95,34,0.12);
+}
+
+/* 春节 — 中国红 */
+[data-theme="cny"] {
+  --accent:     #d4382a;
+  --accent-dim: rgba(212,56,42,0.12);
+}
+
+/* 春天 — 多巴胺粉 */
+[data-theme="spring"] {
+  --accent:     #e85d9a;
+  --accent-dim: rgba(232,93,154,0.12);
+}
+
+/* 夏天 — 薄荷青 */
+[data-theme="summer"] {
+  --accent:     #2dbbab;
+  --accent-dim: rgba(45,187,171,0.12);
+}
+
+/* 秋天 — 焦糖琥珀 */
+[data-theme="autumn"] {
+  --accent:     #c87e3a;
+  --accent-dim: rgba(200,126,58,0.12);
+}

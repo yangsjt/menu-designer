@@ -1,0 +1,149 @@
+/* ═══════════════════════════════════
+   wall-menu.css — 墙面菜单专属布局
+   画布：1250 × 600 px（1mm = 1px）
+═══════════════════════════════════ */
+
+/* ─── Screen Preview ─── */
+body {
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Noto Sans SC', system-ui, sans-serif;
+}
+
+/* ─── Menu Board ─── */
+.menu-board {
+  width: 1250px;
+  height: 600px;
+  background: var(--bg);
+  color: var(--text-1);
+  overflow: hidden;
+  transform-origin: top center;
+  transform: scale(0.75);
+  margin-bottom: -150px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+/* ─── 3-Column Layout ─── */
+.main-body {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Col 1 · 季节限定（290px） */
+.col-seasonal {
+  flex: 0 0 290px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--divider);
+  overflow: hidden;
+}
+
+/* Col 2 · 动径特调 + 能量组合（430px） */
+.col-sig {
+  flex: 0 0 430px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--divider);
+  overflow: hidden;
+}
+
+/* Col 3 · 经典日常 + 非咖啡 + 租赁 */
+.col-classic {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.classic-inner {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* 经典日常 + 非咖啡合并子列 */
+.classic-sub-drinks {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.compact-list {
+  gap: 2px;
+  padding: 4px 8px 6px;
+}
+.compact-list .pl-name { font-size: 13px; }
+.compact-list .pl-en   { font-size: 10px; }
+.compact-list .pl-price { font-size: 16px; }
+.compact-list .pl-row.upgrade .pl-name,
+.compact-list .pl-row.upgrade .pl-price { font-size: 10px; }
+
+/* 自行车租赁子列 */
+.rental-sub {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--divider);
+  overflow: hidden;
+}
+.rental-img-wrap {
+  margin-right: 8px;
+}
+
+/* ─── iframe 嵌入模式：原始尺寸，无预览缩放 ─── */
+html.in-iframe body {
+  background: none;
+  padding: 0;
+  min-height: auto;
+}
+html.in-iframe .menu-board {
+  transform: none;
+  margin-bottom: 0;
+}
+
+/* ═══ Layout B: Signature-First ═══
+   Column distribution: 480 (sig) + 250 (seasonal) + flex:1 (~520 classic) = 1250px
+═══════════════════════════════════ */
+[data-layout="b"] .col-sig      { order: 1; flex: 0 0 480px; }
+[data-layout="b"] .col-seasonal { order: 2; flex: 0 0 250px; }
+[data-layout="b"] .col-classic  { order: 3; }
+[data-layout="b"] .sig-grid     { grid-template-columns: repeat(3, 1fr); }
+[data-layout="b"] .combo-mini-list {
+  flex-direction: row;
+  gap: 4px;
+}
+[data-layout="b"] .combo-mini {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ─── Print: 1250mm × 600mm landscape ─── */
+@page {
+  size: 1250mm 600mm landscape;
+  margin: 0;
+}
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body {
+    background: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+  }
+  .menu-board {
+    width: 1250mm;
+    height: 600mm;
+    transform: none !important;
+    margin: 0;
+  }
+}
