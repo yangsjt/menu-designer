@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════
-   themes.css — 5 套季节主题定义
+   themes.css — 9 套季节主题定义
 ═══════════════════════════════════ */
 
 /* 默认（品牌橙）— 无需覆盖，使用 base.css 中的 :root 值 */
@@ -57,6 +57,42 @@
 }
 [data-theme="muted"] .section-header.orange-bar {
   background: var(--surface-2);
+}
+
+/* VI 粉 — 泡泡糖粉 (PANTONE 230 C) */
+[data-theme="vi-pink"] {
+  --accent:     #F4A6D3;
+  --accent-dim: rgba(244,166,211,0.12);
+}
+
+/* VI 金 — 高级质感金 (VI 辅助色) */
+[data-theme="vi-gold"] {
+  --accent:     #B38600;
+  --accent-dim: rgba(179,134,0,0.12);
+}
+
+/* VI 薄荷绿 — 清新自然 (PANTONE 9540 C 加深) */
+[data-theme="vi-mint"] {
+  --accent:     #5ec49e;
+  --accent-dim: rgba(94,196,158,0.12);
+}
+
+/* 圣诞节 — 红+绿双色 */
+[data-theme="christmas"] {
+  --accent:     #c41e3a;
+  --accent-dim: rgba(196,30,58,0.12);
+  --accent-2:   #2d8b57;
+}
+
+/* 圣诞双色：section header 使用绿色 */
+[data-theme="christmas"] .section-header {
+  background: rgba(45,139,87,0.15);
+}
+[data-theme="christmas"] .combo-mini {
+  border-left-color: var(--accent-2);
+}
+[data-theme="christmas"] .combo-mini.highlight {
+  border-color: var(--accent);
 }
 
 /* 浅色 — 浅灰底 + 品牌橙 */

@@ -20,7 +20,7 @@ menu-designer/
 ├── a4-menu.html            ← A4 立牌菜单（210×297 竖版）
 ├── css/
 │   ├── base.css            ← 共享：变量、reset、组件样式
-│   ├── themes.css          ← 5 套季节主题定义
+│   ├── themes.css          ← 9 套季节主题定义
 │   ├── wall-menu.css       ← 墙面菜单专属布局 + @page landscape
 │   └── a4-menu.css         ← A4 菜单专属布局 + @page portrait
 ├── js/
@@ -55,7 +55,7 @@ menu-designer/
 }
 ```
 
-### 5 套主题
+### 9 套主题
 
 | 主题 | `data-theme` | `--accent` | 设计意图 |
 |------|-------------|-----------|---------|
@@ -64,6 +64,10 @@ menu-designer/
 | 春天 | `spring` | `#e85d9a` 多巴胺粉 | 水果季 |
 | 夏天 | `summer` | `#2dbbab` 薄荷青 | 冰饮季 |
 | 秋天 | `autumn` | `#c87e3a` 焦糖琥珀 | 坚果季 |
+| VI粉 | `vi-pink` | `#F4A6D3` 泡泡糖粉 | PANTONE 230 C 辅助色 |
+| VI金 | `vi-gold` | `#B38600` 高级质感金 | VI 辅助色 |
+| VI绿 | `vi-mint` | `#5ec49e` 薄荷绿 | PANTONE 9540 C 加深 |
+| 圣诞 | `christmas` | `#c41e3a` 圣诞红 + `#2d8b57` 圣诞绿 | 红绿双色 |
 
 ### `--accent` 作用范围
 
