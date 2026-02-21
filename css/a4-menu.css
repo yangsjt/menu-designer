@@ -241,7 +241,10 @@ body {
   color: var(--accent);
 }
 .sig-item .desc {
-  display: none;
+  font-size: 2.2px;
+  color: var(--text-3);
+  margin-left: 1.5px;
+  opacity: 0.7;
 }
 .sig-item-top {
   gap: 2px;
@@ -430,6 +433,7 @@ html.in-iframe .menu-board {
 [data-layout="b"] .sig-grid { padding: 2px 3px; }
 [data-layout="b"] .sig-item .cn-name { font-size: 3.8px; }
 [data-layout="b"] .sig-item .en-name { font-size: 2.2px; }
+[data-layout="b"] .sig-item .desc { font-size: 2px; }
 [data-layout="b"] .sig-item .price,
 [data-layout="b"] .sig-item.accent .price { font-size: 5px; }
 
@@ -463,6 +467,91 @@ html.in-iframe .menu-board {
 [data-layout="b"] .rental-tier strong { font-size: 3.2px; }
 [data-layout="b"] .rental-process { font-size: 1.8px; }
 [data-layout="b"] .rental-process strong { font-size: 2px; }
+
+/* ═══ Layout C: Layout A + 能量组合图文卡片 ═══ */
+
+/* 容器：横向排列 */
+[data-layout="c"] .combo-mini-list {
+  flex-direction: row;
+  gap: 2px;
+}
+
+/* 卡片：纵向堆叠，图片背景 */
+[data-layout="c"] .combo-mini {
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  min-height: 32px;
+  background-size: cover;
+  background-position: center bottom;
+  border-left: none;
+  border-radius: 1px;
+  padding: 2px 2.5px;
+  flex: 1 1 0;
+}
+
+/* 渐变遮罩 */
+[data-layout="c"] .combo-mini::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.85) 25%, transparent 75%);
+  z-index: 0;
+}
+
+/* 文字层级 */
+[data-layout="c"] .combo-mini-info {
+  position: relative;
+  z-index: 1;
+}
+
+/* 价格徽章：右下绝对定位 */
+[data-layout="c"] .combo-badge {
+  position: absolute;
+  bottom: 1.5px;
+  right: 2px;
+  z-index: 1;
+}
+
+/* 白色系文字 */
+[data-layout="c"] .combo-mini .combo-title {
+  color: #fff;
+  font-size: 3.2px;
+}
+[data-layout="c"] .combo-mini .combo-desc {
+  color: rgba(255,255,255,0.75);
+  font-size: 2px;
+}
+[data-layout="c"] .combo-mini .combo-badge {
+  background: rgba(0,0,0,0.3);
+  border-color: rgba(255,255,255,0.5);
+  color: var(--accent);
+}
+
+/* Highlight 卡片覆盖 */
+[data-layout="c"] .combo-mini.highlight {
+  background-color: transparent;
+  border: 1px solid var(--accent);
+  margin-top: 0;
+}
+[data-layout="c"] .combo-mini.highlight .combo-badge {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* 背景图片 — 复用 wall-menu 同源图 */
+[data-layout="c"] .combo-mini:nth-child(1) {
+  background-image: url('../imgs/脆墩墩.png');
+}
+[data-layout="c"] .combo-mini:nth-child(2) {
+  background-image: url('../imgs/巴斯克.png');
+  background-position: center 30%;
+}
+[data-layout="c"] .combo-mini:nth-child(3) {
+  background-image: url('../imgs/双人探索.png');
+}
 
 /* ─── Print: A4 210mm × 297mm ─── */
 @page {
