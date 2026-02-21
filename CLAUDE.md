@@ -182,7 +182,7 @@ CSV 包含 33 行菜品数据（序号 1–28 + 31–33），覆盖 6 个类别�
 
 ### 类别 1：季节限定（CSV 序号 1–3）
 
-**HTML 位置：** `.col-seasonal` > `.seasonal-cards` > `.seasonal-card`
+**墙面菜单 HTML 位置：** `.col-seasonal` > `.seasonal-cards` > `.seasonal-card`
 
 | CSV 列 | HTML 元素 | 示例 |
 |---------|-----------|------|
@@ -192,10 +192,40 @@ CSV 包含 33 行菜品数据（序号 1–28 + 31–33），覆盖 6 个类别�
 | H 价格 | `.seasonal-card .price` | `35` |
 | I 店长推荐 | `.cn-name` 后追加 👍 span | `好事花生 👍` |
 
+**A4 菜单 HTML 位置：** `.col-seasonal` > `.seasonal-list` > `.seasonal-item`
+
+A4 菜单采用左缩略图 + 右文字的卡片布局，每个 `.seasonal-item` 结构：
+
+```html
+<div class="seasonal-item">
+  <img class="seasonal-item-img" src="imgs/品名.jpg" alt="品名">
+  <div class="seasonal-item-text">
+    <div class="seasonal-item-top">
+      <div class="seasonal-item-names">
+        <div class="cn-name">品名</div>
+        <div class="en-name">ENGLISH NAME</div>
+      </div>
+      <div class="price">35</div>
+    </div>
+    <div class="desc">描述文字</div>
+  </div>
+</div>
+```
+
+| CSV 列 | HTML 元素 | 示例 |
+|---------|-----------|------|
+| D 品名 | `.seasonal-item .cn-name` | `鸿运当头` |
+| E 英文名 | `.seasonal-item .en-name`（全大写显示） | `GOOD LUCK AHEAD` |
+| F 描述 | `.seasonal-item .desc` | `迷人酒香樱桃美式、冰糖脆皮口感、复古年味` |
+| H 价格 | `.seasonal-item .price` | `35` |
+| I 店长推荐 | `.cn-name` 后追加 👍 span | `好事花生 👍` |
+| — 图片 | `.seasonal-item-img` `src` 属性 | `imgs/鸿运当头.jpg` |
+
 **特殊规则：**
 - 价格 > 45 → 卡片加 `.premium` 类（accent 色轮廓线）
 - 图片规格：548 × 306 px / 16:9 比例
 - 图片路径：`imgs/` 目录，`<img>` 标签 `alt` 属性 = 品名
+- A4 菜单图片同源，需同时更新两个 HTML 中的 `<img>` 标签
 
 ### 类别 2：动径特调（CSV 序号 4–10）
 

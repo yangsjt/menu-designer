@@ -116,18 +116,40 @@ body {
   flex-direction: column;
 }
 
-/* ═══ 季节限定 (纯文字列表) ═══ */
+/* ═══ 季节限定 (左缩略图 + 右文字) ═══ */
 .col-seasonal {
   flex: 0 0 auto;
 }
 .seasonal-list {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2.5px;
   padding: 3px 4px;
 }
 .seasonal-item {
-  padding: 1.5px 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 1.5px;
+  background: var(--surface-2);
+}
+.seasonal-item-img {
+  width: 28px;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  border-radius: 1.5px 0 0 1.5px;
+}
+.seasonal-item-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2px 2.5px;
+  gap: 0.5px;
 }
 .seasonal-item-top {
   display: flex;
@@ -159,7 +181,6 @@ body {
   font-size: 2.8px;
   color: var(--text-3);
   line-height: 1.25;
-  margin-top: 0.5px;
 }
 .seasonal-item .price {
   font-family: 'Bebas Neue', sans-serif;
@@ -168,6 +189,10 @@ body {
   white-space: nowrap;
   line-height: 1;
   flex-shrink: 0;
+}
+.seasonal-item.premium {
+  outline: 0.5px solid var(--accent);
+  outline-offset: -0.5px;
 }
 
 /* ═══ 动径特调 (单栏列表) ═══ */
@@ -382,7 +407,8 @@ html.in-iframe .menu-board {
 [data-layout="b"] .main-body { grid-template-columns: 103px 107px; }
 
 /* 季节限定 */
-[data-layout="b"] .seasonal-list { padding: 3px 3px; }
+[data-layout="b"] .seasonal-list { gap: 3px; padding: 3px 3px; }
+[data-layout="b"] .seasonal-item-img { width: 22px; }
 [data-layout="b"] .seasonal-item .cn-name { font-size: 4.2px; }
 [data-layout="b"] .seasonal-item .en-name { font-size: 2.9px; }
 [data-layout="b"] .seasonal-item .desc { font-size: 2.6px; }
