@@ -28,7 +28,11 @@ const MENU_CONFIG = {
   },
 };
 
-const VALID_THEMES = ['default', 'cny', 'spring', 'summer', 'autumn'];
+const VALID_THEMES = [
+  'default', 'cny', 'spring', 'summer', 'autumn',
+  'muted', 'vi-pink', 'vi-gold', 'vi-mint', 'christmas',
+  'light',
+];
 const VALID_LAYOUTS = ['a', 'b'];
 
 const MIME_TYPES = {
@@ -185,8 +189,11 @@ async function generatePdf({ port, menuKey, theme, layout, outputDir }) {
     /* Set default page background to match --bg (#111111 = rgb(17,17,17))
        to eliminate the 1-2px white edge from Chromium's PDF renderer */
     const cdp = await page.createCDPSession();
+    const bgColor = theme === 'light'
+      ? { r: 245, g: 245, b: 245, a: 1 }
+      : { r: 17, g: 17, b: 17, a: 1 };
     await cdp.send('Emulation.setDefaultBackgroundColorOverride', {
-      color: { r: 17, g: 17, b: 17, a: 1 },
+      color: bgColor,
     });
 
     await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
