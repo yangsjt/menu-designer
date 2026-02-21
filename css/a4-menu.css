@@ -30,36 +30,38 @@ body {
   flex-shrink: 0;
 }
 
-/* ═══ HEADER (14mm) ═══ */
+/* ═══ HEADER (13mm) ═══ */
 .header {
-  height: 14px;
-  padding: 0 6px;
+  height: 13px;
+  padding: 0 5px;
   border-bottom-width: 1px;
 }
 .header-logo svg {
-  width: 40px;
+  width: 38px;
 }
 .header-tagline .district {
-  font-size: 4.5px;
+  font-size: 4.2px;
+  letter-spacing: 0.1em;
 }
 .header-tagline .sub {
-  font-size: 3.5px;
+  font-size: 3.2px;
   letter-spacing: 0.08em;
 }
-.header-tagline { gap: 2px; }
+.header-tagline { gap: 1.5px; }
 
 /* ═══ Section Headers ═══ */
 .section-header {
-  height: 9px;
-  padding: 1px 5px;
+  height: 7px;
+  padding: 0 4px;
 }
 .section-title-cn {
-  font-size: 5.5px;
+  font-size: 4.5px;
+  letter-spacing: 0.06em;
 }
 .section-title-en {
-  font-size: 4px;
+  font-size: 3px;
 }
-.section-header > div { gap: 2px; }
+.section-header > div { gap: 1.5px; }
 
 /* ═══ Main Content ═══ */
 .main-body {
@@ -83,17 +85,19 @@ body {
 .seasonal-card {
   flex: 1;
   border-radius: 3px;
-  min-height: 40px;
+  min-height: 34px;
 }
 .seasonal-card.premium {
-  outline-width: 1px;
+  outline-width: 1.2px;
   outline-offset: -1px;
 }
 .seasonal-card .card-body {
-  padding: 12px 4px 3px;
+  padding: 10px 3px 2px;
+  background: linear-gradient(transparent 5%, rgba(0,0,0,0.85) 50%);
 }
 .seasonal-card .cn-name {
   font-size: 5px;
+  text-shadow: 0 0.5px 1.5px rgba(0,0,0,0.6);
 }
 .seasonal-card .en-name {
   font-size: 3.5px;
@@ -101,12 +105,14 @@ body {
 }
 .seasonal-card .desc {
   font-size: 3px;
-  margin-top: 1px;
-  line-height: 1.3;
+  margin-top: 0.5px;
+  line-height: 1.25;
+  color: rgba(255,255,255,0.7);
 }
 .seasonal-card .price {
-  font-size: 6px;
-  margin-top: 2px;
+  font-size: 7px;
+  margin-top: 1.5px;
+  color: rgba(255,255,255,0.65);
 }
 
 /* ─── 动径特调 (2×4 grid) ─── */
@@ -116,30 +122,28 @@ body {
   border-bottom: 1px solid var(--divider);
 }
 .sig-grid {
-  padding: 2px 4px;
+  padding: 1.5px 4px;
   gap: 1px;
 }
 .sig-item {
-  padding: 2px 3px;
-  gap: 1px;
+  padding: 1.5px 3px;
+  gap: 0;
 }
 .sig-item.accent {
   border-radius: 2px;
 }
 .sig-item .cn-name {
-  font-size: 5px;
+  font-size: 4.5px;
 }
 .sig-item .en-name {
-  font-size: 3.5px;
+  font-size: 2.5px;
+  margin-top: 0.5px;
 }
 .sig-item .price {
-  font-size: 6.5px;
+  font-size: 6px;
 }
 .sig-item .desc {
-  font-size: 3px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: none;
 }
 .sig-item-top {
   gap: 2px;
@@ -148,36 +152,39 @@ body {
 /* ─── 能量组合 (横排3卡) ─── */
 .combo-mini-list {
   flex-direction: row;
-  gap: 2px;
-  padding: 2px 4px;
+  gap: 1.5px;
+  padding: 1.5px 4px;
 }
 .combo-mini {
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 2px 3px;
+  flex-direction: row;
+  align-items: center;
+  padding: 1.5px 2.5px;
   border-radius: 2px;
-  border-left-width: 2px;
+  border-left-width: 1.5px;
   gap: 2px;
 }
-.combo-mini-info { gap: 1px; }
+.combo-mini-info { gap: 0.5px; }
 .combo-mini .combo-tag {
-  font-size: 2.5px;
+  font-size: 2px;
+  opacity: 0.8;
 }
 .combo-mini .combo-title {
-  font-size: 5px;
+  font-size: 4px;
+  line-height: 1.15;
 }
 .combo-mini .combo-desc {
-  font-size: 3px;
-  line-height: 1.3;
+  font-size: 2.5px;
+  line-height: 1.2;
 }
 .combo-mini .combo-badge {
-  font-size: 5.5px;
-  padding: 1px 3px;
-  border-radius: 2px;
-  align-self: flex-end;
+  font-size: 5px;
+  padding: 0.5px 2px;
+  border-radius: 1.5px;
+  align-self: auto;
+  flex-shrink: 0;
 }
 .combo-mini.highlight .combo-badge {
-  font-size: 6.5px;
+  font-size: 5.5px;
 }
 
 /* ─── 经典日常 + 非咖啡 (横排双列) ─── */
@@ -186,6 +193,7 @@ body {
   border-bottom: 1px solid var(--divider);
 }
 .classic-inner {
+  display: flex;
   flex-direction: row;
 }
 .classic-sub-drinks {
@@ -198,19 +206,19 @@ body {
 
 /* Price list compact sizing */
 .price-list {
-  padding: 2px 4px;
-  gap: 1px;
+  padding: 1.5px 3px;
+  gap: 0.5px;
 }
-.compact-list .pl-name { font-size: 5px; }
-.compact-list .pl-en   { font-size: 3.5px; }
-.compact-list .pl-price { font-size: 6px; }
+.compact-list .pl-name { font-size: 4.5px; }
+.compact-list .pl-en   { font-size: 3px; }
+.compact-list .pl-price { font-size: 5.5px; }
 .compact-list .pl-row.upgrade .pl-name,
-.compact-list .pl-row.upgrade .pl-price { font-size: 3.5px; }
-.pl-spec { font-size: 2.5px; }
+.compact-list .pl-row.upgrade .pl-price { font-size: 3px; }
+.pl-spec { font-size: 2px; }
 .pl-dots { margin-bottom: 1px; min-width: 2px; }
-.pl-row { gap: 1px; }
-.pl-row.upgrade { padding-left: 2px; }
-.pl-divider { margin: 1px 0; }
+.pl-row { gap: 0.5px; }
+.pl-row.upgrade { padding-left: 1.5px; }
+.pl-divider { margin: 0.5px 0; }
 
 /* ─── 自行车租赁 (全宽横条) ─── */
 .rental-sub {
@@ -219,42 +227,42 @@ body {
   flex-direction: row;
 }
 .rental-img-wrap {
-  flex: 0 0 70px;
+  flex: 0 0 50px;
   border-radius: 0;
-  min-height: 30px;
+  min-height: 20px;
 }
 .rental-img-wrap::before {
-  width: 8px;
+  width: 6px;
 }
 .rental-info-wrap {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2px 4px;
+  padding: 1.5px 4px;
 }
 .rental-overlay {
   position: static;
   background: none;
   padding: 0;
 }
-.rental-slogan { font-size: 3.5px; margin-bottom: 1px; }
-.rental-price-big { font-size: 8px; margin-bottom: 2px; }
-.rental-tiers { gap: 3px; margin-bottom: 2px; }
-.rental-tier { font-size: 3px; }
-.rental-tier strong { font-size: 5px; }
-.rental-process { font-size: 2.5px; padding-top: 2px; }
-.rental-process strong { font-size: 3px; }
+.rental-slogan { font-size: 3px; margin-bottom: 0.5px; }
+.rental-price-big { font-size: 7px; margin-bottom: 1px; }
+.rental-tiers { gap: 2px; margin-bottom: 1px; }
+.rental-tier { font-size: 2.5px; }
+.rental-tier strong { font-size: 4.5px; }
+.rental-process { font-size: 2px; padding-top: 1px; line-height: 1.3; }
+.rental-process strong { font-size: 2.5px; }
 
-/* ═══ FOOTER (7mm) ═══ */
+/* ═══ FOOTER (6.5mm) ═══ */
 .footer {
-  height: 7px;
-  gap: 2px;
+  height: 6.5px;
+  gap: 1.5px;
 }
-.footer-icon { font-size: 3.5px; margin-right: 0.5px; }
-.footer-main { font-size: 3px; }
-.footer .sep { font-size: 3px; }
-.footer-currency { font-size: 2.5px; right: 4px; }
+.footer-icon { font-size: 3px; margin-right: 0.5px; }
+.footer-main { font-size: 2.8px; }
+.footer .sep { font-size: 2.8px; }
+.footer-currency { font-size: 2.2px; right: 4px; }
 
 /* ─── iframe 嵌入模式：原始尺寸，无预览缩放 ─── */
 html.in-iframe body {
