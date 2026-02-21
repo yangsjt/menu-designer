@@ -34,12 +34,12 @@ body {
 /* ═══ HEADER (25mm) ═══ */
 .header {
   height: 25px;
-  padding: 3px 6px 3px;
+  padding: 5.4px 6px 5px;
   border-bottom: 1px solid var(--accent);
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5px;
+  gap: 0;
 }
 .header-logo svg {
   height: 14px;
@@ -334,7 +334,11 @@ body {
   font-size: 2.3px;
   color: var(--text-3);
 }
-.notes-icon { display: none; }
+.notes-icon {
+  font-size: 2.5px;
+  line-height: 1;
+  margin-right: 0.3px;
+}
 .notes-currency {
   font-size: 2px;
   color: var(--text-3);
