@@ -118,14 +118,15 @@ MenuTheme.apply('summer');
 
 CSS 选择器前缀：`[data-layout="b"]`，位于 `css/wall-menu.css` 的 `@page` 之前。
 
-### A4 菜单 Layout B —— "双栏紧凑"
+### A4 菜单 Layout A —— "2:1 宽窄分栏"（默认）
 
 | 属性 | Layout A | Layout B |
 |------|----------|----------|
-| `.main-body` | flex-direction: column | **CSS Grid 2 列 (115px + 95px)** |
-| 季节限定卡 | 横向 3 卡 | **纵向 3 卡** |
-| 特调+组合 | 独立区块 | **与季节限定同列（左栏）** |
-| 经典+非咖啡+租赁 | 横排双列 | **右栏纵向堆叠** |
+| 栅格 | `140px 70px`（2:1） | `103px 107px`（均分） |
+| 左栏字号 | 放大（季节/特调/组合） | 原始尺寸 |
+| 右栏字号 | 紧缩（经典/非咖啡/租赁） | 原始尺寸 |
+| 右栏英文名 | 单行截断省略 `text-overflow: ellipsis` | 正常显示 |
+| 租赁价格档 | 纵向堆叠 | 横向并排 |
 
 CSS 选择器前缀：`[data-layout="b"]`，位于 `css/a4-menu.css` 的 `@page` 之前。
 

@@ -80,6 +80,15 @@ body {
   opacity: 0.5;
 }
 .section-header > div { gap: 1.5px; }
+/* Left column section headers — enlarged for 2:1 layout */
+.col-seasonal .section-title-cn,
+.col-sig .section-title-cn      { font-size: 4px; }
+.col-seasonal .section-title-en,
+.col-sig .section-title-en      { font-size: 2.8px; }
+/* Right column section headers — compact for narrow column */
+.col-right .section-title-cn { font-size: 3.2px; }
+.col-right .section-title-en { font-size: 2.2px; }
+.col-right .section-header   { padding: 2px 2px 1.5px; }
 /* First section header in each column — no top border */
 .col-seasonal > .section-header,
 .col-right > .classic-sub-drinks:first-child > .section-header {
@@ -89,7 +98,7 @@ body {
 /* ═══ Main Body: Two-Column Grid ═══ */
 .main-body {
   display: grid;
-  grid-template-columns: 103px 107px;
+  grid-template-columns: 140px 70px;
   flex: 1;
   overflow: hidden;
 }
@@ -115,7 +124,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  padding: 3px 3px;
+  padding: 3px 4px;
 }
 .seasonal-item {
   padding: 1.5px 2px;
@@ -131,7 +140,7 @@ body {
   min-width: 0;
 }
 .seasonal-item .cn-name {
-  font-size: 4.2px;
+  font-size: 4.5px;
   font-weight: 700;
   color: var(--text-1);
   white-space: nowrap;
@@ -140,21 +149,21 @@ body {
 }
 .seasonal-item .en-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.9px;
+  font-size: 3.2px;
   color: var(--accent);
   letter-spacing: 0.06em;
   margin-top: 0.5px;
   line-height: 1;
 }
 .seasonal-item .desc {
-  font-size: 2.6px;
+  font-size: 2.8px;
   color: var(--text-3);
   line-height: 1.25;
   margin-top: 0.5px;
 }
 .seasonal-item .price {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 6px;
+  font-size: 6.5px;
   color: var(--accent);
   white-space: nowrap;
   line-height: 1;
@@ -171,7 +180,7 @@ body {
 .sig-grid {
   display: flex;
   flex-direction: column;
-  padding: 2px 3px;
+  padding: 2px 4px;
   gap: 2px;
 }
 .sig-item {
@@ -184,15 +193,15 @@ body {
   padding-left: 2px;
 }
 .sig-item .cn-name {
-  font-size: 3.8px;
+  font-size: 4px;
 }
 .sig-item .en-name {
-  font-size: 2.2px;
+  font-size: 2.5px;
   margin-top: 0.3px;
 }
 .sig-item .price,
 .sig-item.accent .price {
-  font-size: 5px;
+  font-size: 5.5px;
   color: var(--accent);
 }
 .sig-item .desc {
@@ -206,7 +215,7 @@ body {
 .combo-mini-list {
   flex-direction: column;
   gap: 2px;
-  padding: 2px 3px;
+  padding: 2px 4px;
 }
 .combo-mini {
   flex-direction: row;
@@ -230,15 +239,15 @@ body {
   display: none;
 }
 .combo-mini .combo-title {
-  font-size: 3.4px;
+  font-size: 3.6px;
   line-height: 1.15;
 }
 .combo-mini .combo-desc {
-  font-size: 2.2px;
+  font-size: 2.4px;
   line-height: 1.2;
 }
 .combo-mini .combo-badge {
-  font-size: 4.2px;
+  font-size: 4.5px;
   padding: 0.5px 2px;
   border-radius: 1.5px;
   align-self: auto;
@@ -248,7 +257,7 @@ body {
   color: var(--accent);
 }
 .combo-mini.highlight .combo-badge {
-  font-size: 4.5px;
+  font-size: 5px;
   background: var(--accent);
   border-color: var(--accent);
   color: #fff;
@@ -264,14 +273,14 @@ body {
 
 /* Price list compact sizing */
 .price-list {
-  padding: 2px 3px;
+  padding: 2px 2px;
   gap: 1.5px;
 }
-.compact-list .pl-name { font-size: 3.8px; }
-.compact-list .pl-en   { font-size: 2.5px; }
-.compact-list .pl-price { font-size: 4.5px; }
+.compact-list .pl-name { font-size: 3.2px; }
+.compact-list .pl-en   { font-size: 2.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 28px; }
+.compact-list .pl-price { font-size: 3.8px; }
 .compact-list .pl-row.upgrade .pl-name,
-.compact-list .pl-row.upgrade .pl-price { font-size: 2.5px; }
+.compact-list .pl-row.upgrade .pl-price { font-size: 2.2px; }
 .pl-spec { font-size: 2px; display: none; }
 .pl-dots { margin-bottom: 1px; min-width: 2px; }
 .pl-row { gap: 0.5px; }
@@ -286,24 +295,24 @@ body {
 }
 .rental-img-wrap {
   border-radius: 1.5px;
-  margin: 2px 3px;
+  margin: 2px 2px;
   min-height: 0;
 }
 .rental-img-wrap::before { display: none; }
 .rental-overlay {
-  padding: 8px 2.5px 2px;
+  padding: 6px 2px 1.5px;
   background: linear-gradient(transparent, rgba(0,0,0,0.88) 35%);
   --ro-text: #cccccc;
   --ro-text-dim: #888888;
   --ro-divider: rgba(255,255,255,0.08);
 }
-.rental-slogan { font-size: 2.3px; color: var(--ro-text); margin-bottom: 0.5px; }
-.rental-price-big { font-size: 5px; margin-bottom: 0.5px; color: var(--accent); }
-.rental-tiers { gap: 2px; margin-bottom: 1px; }
-.rental-tier { font-size: 2px; color: var(--ro-text); }
-.rental-tier strong { font-size: 3.2px; color: var(--accent); }
-.rental-process { font-size: 1.8px; padding-top: 0.5px; line-height: 1.25; color: var(--ro-text-dim); border-top: 1px solid var(--ro-divider); }
-.rental-process strong { font-size: 2px; color: var(--ro-text); }
+.rental-slogan { font-size: 2px; color: var(--ro-text); margin-bottom: 0.5px; }
+.rental-price-big { font-size: 4px; margin-bottom: 0.5px; color: var(--accent); }
+.rental-tiers { flex-direction: column; gap: 1.5px; margin-bottom: 1px; }
+.rental-tier { font-size: 1.8px; color: var(--ro-text); }
+.rental-tier strong { font-size: 2.8px; color: var(--accent); }
+.rental-process { font-size: 1.6px; padding-top: 0.5px; line-height: 1.25; color: var(--ro-text-dim); border-top: 1px solid var(--ro-divider); }
+.rental-process strong { font-size: 1.8px; color: var(--ro-text); }
 
 /* ═══ 优惠须知 (原 footer 内容) ═══ */
 .notes-section {
@@ -369,7 +378,53 @@ html.in-iframe .menu-board {
   margin-bottom: 0;
 }
 
-/* ═══ Layout B: placeholder (清空旧规则，后续按需重新设计) ═══ */
+/* ═══ Layout B: 均分双栏（原始布局） ═══ */
+[data-layout="b"] .main-body { grid-template-columns: 103px 107px; }
+
+/* 季节限定 */
+[data-layout="b"] .seasonal-list { padding: 3px 3px; }
+[data-layout="b"] .seasonal-item .cn-name { font-size: 4.2px; }
+[data-layout="b"] .seasonal-item .en-name { font-size: 2.9px; }
+[data-layout="b"] .seasonal-item .desc { font-size: 2.6px; }
+[data-layout="b"] .seasonal-item .price { font-size: 6px; }
+
+/* 特调 */
+[data-layout="b"] .sig-grid { padding: 2px 3px; }
+[data-layout="b"] .sig-item .cn-name { font-size: 3.8px; }
+[data-layout="b"] .sig-item .en-name { font-size: 2.2px; }
+[data-layout="b"] .sig-item .price,
+[data-layout="b"] .sig-item.accent .price { font-size: 5px; }
+
+/* 能量组合 */
+[data-layout="b"] .combo-mini-list { padding: 2px 3px; }
+[data-layout="b"] .combo-mini .combo-title { font-size: 3.4px; }
+[data-layout="b"] .combo-mini .combo-desc { font-size: 2.2px; }
+[data-layout="b"] .combo-mini .combo-badge { font-size: 4.2px; }
+[data-layout="b"] .combo-mini.highlight .combo-badge { font-size: 4.5px; }
+
+/* Section headers — 恢复统一尺寸 */
+[data-layout="b"] .section-header { padding: 2.5px 3px 1.5px; }
+[data-layout="b"] .section-title-cn { font-size: 3.8px; }
+[data-layout="b"] .section-title-en { font-size: 2.5px; }
+
+/* 经典/非咖啡 — 恢复 */
+[data-layout="b"] .price-list { padding: 2px 3px; }
+[data-layout="b"] .compact-list .pl-name { font-size: 3.8px; }
+[data-layout="b"] .compact-list .pl-en { max-width: none; white-space: normal; overflow: visible; }
+[data-layout="b"] .compact-list .pl-price { font-size: 4.5px; }
+[data-layout="b"] .compact-list .pl-row.upgrade .pl-name,
+[data-layout="b"] .compact-list .pl-row.upgrade .pl-price { font-size: 2.5px; }
+
+/* 租赁 — 恢复 */
+[data-layout="b"] .rental-img-wrap { margin: 2px 3px; }
+[data-layout="b"] .rental-overlay { padding: 8px 2.5px 2px; }
+[data-layout="b"] .rental-slogan { font-size: 2.3px; }
+[data-layout="b"] .rental-price-big { font-size: 5px; }
+[data-layout="b"] .rental-tiers { flex-direction: row; gap: 2px; }
+[data-layout="b"] .rental-tier { font-size: 2px; }
+[data-layout="b"] .rental-tier strong { font-size: 3.2px; }
+[data-layout="b"] .rental-process { font-size: 1.8px; }
+[data-layout="b"] .rental-process strong { font-size: 2px; }
 
 /* ─── Print: A4 210mm × 297mm ─── */
 @page {
