@@ -4,7 +4,7 @@
 
 /* ─── CSS Variables ─── */
 :root {
-  /* 品牌基底层 — 永不被主题覆盖 */
+  /* 品牌基底层 — 默认值（可被主题覆盖） */
   --bg:         #111111;
   --surface:    #1a1a1a;
   --surface-2:  #222222;
@@ -249,8 +249,9 @@
   gap: 8px;
 }
 .combo-mini.highlight {
-  background: var(--accent);
-  border-left-color: rgba(0,0,0,0.2);
+  background: var(--accent-dim);
+  border: 2px solid var(--accent);
+  border-left-width: 3px;
 }
 .combo-mini-info {
   display: flex;
@@ -267,7 +268,7 @@
   line-height: 1;
 }
 .combo-mini.highlight .combo-tag {
-  color: rgba(255,255,255,0.65);
+  color: var(--accent);
 }
 .combo-mini .combo-title {
   font-size: 13px;
@@ -276,7 +277,7 @@
   line-height: 1.2;
 }
 .combo-mini.highlight .combo-title {
-  color: #fff;
+  color: var(--text-1);
 }
 .combo-mini .combo-desc {
   font-size: 10px;
@@ -284,7 +285,7 @@
   line-height: 1.4;
 }
 .combo-mini.highlight .combo-desc {
-  color: rgba(255,255,255,0.75);
+  color: var(--text-2);
 }
 .combo-mini .combo-badge {
   display: inline-block;
@@ -300,8 +301,8 @@
   flex-shrink: 0;
 }
 .combo-mini.highlight .combo-badge {
-  background: rgba(0,0,0,0.2);
-  border-color: rgba(255,255,255,0.5);
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
   font-size: 18px;
 }
@@ -337,7 +338,7 @@
 }
 .pl-dots {
   flex: 1;
-  border-bottom: 1px dotted rgba(255,255,255,0.12);
+  border-bottom: 1px dotted var(--divider);
   margin-bottom: 3px;
   min-width: 6px;
 }
@@ -399,7 +400,7 @@
 .rental-overlay {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  padding: 10px 10px 8px;
+  padding: 10px 10px 8px 13px;
   background: linear-gradient(transparent, rgba(0,0,0,0.92) 35%);
 }
 .rental-slogan { font-size: 9px; font-weight: 700; color: var(--text-1); line-height: 1.3; margin-bottom: 3px; }
@@ -407,8 +408,8 @@
 .rental-tiers { display: flex; gap: 8px; margin-bottom: 5px; }
 .rental-tier { font-size: 7.5px; color: var(--text-2); line-height: 1.4; }
 .rental-tier strong { font-family: 'Bebas Neue', sans-serif; font-size: 12px; color: var(--accent); }
-.rental-process { font-size: 7px; color: var(--text-3); line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4px; }
-.rental-process strong { color: var(--text-2); font-size: 7.5px; letter-spacing: 0.04em; }
+.rental-process { font-size: 9px; color: var(--text-3); line-height: 1.5; border-top: 1px solid var(--divider); padding-top: 4px; }
+.rental-process strong { color: var(--text-2); font-size: 9.5px; letter-spacing: 0.04em; }
 
 /* ═══ FOOTER ═══ */
 .footer {

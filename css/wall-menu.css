@@ -156,9 +156,6 @@ html.in-iframe .menu-board {
   border-color: rgba(255,255,255,0.5);
   color: var(--accent);
 }
-[data-layout="b"] .combo-mini.highlight .combo-badge {
-  background: rgba(0,0,0,0.6);
-}
 
 /* Layout B: 能量组合背景图 */
 [data-layout="b"] .combo-mini:nth-child(1) { background-image: url('../imgs/脆墩墩.png'); }

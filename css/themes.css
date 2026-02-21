@@ -31,3 +31,72 @@
   --accent:     #c87e3a;
   --accent-dim: rgba(200,126,58,0.12);
 }
+
+/* 灰色 — VI 辅助灰 */
+[data-theme="muted"] {
+  --accent:     #808080;
+  --accent-dim: rgba(128,128,128,0.12);
+}
+
+/* 灰色主题：accent 线条 / 形状统一 1px */
+[data-theme="muted"] .header {
+  border-bottom-width: 1px;
+}
+[data-theme="muted"] .seasonal-card.premium {
+  outline-width: 1px;
+  outline-offset: -1px;
+}
+[data-theme="muted"] .combo-mini {
+  border-left-width: 1px;
+}
+[data-theme="muted"] .combo-mini.highlight {
+  border-width: 1px;
+}
+[data-theme="muted"] [data-layout="b"] .combo-mini:nth-child(3) {
+  border-width: 1px;
+}
+[data-theme="muted"] .section-header.orange-bar {
+  background: var(--surface-2);
+}
+
+/* 浅色 — 浅灰底 + 品牌橙 */
+[data-theme="light"] {
+  --bg:         #f5f5f5;
+  --surface:    #ffffff;
+  --surface-2:  #ebebeb;
+  --text-1:     #1a1a1a;
+  --text-2:     #444444;
+  --text-3:     #777777;
+  --divider:    rgba(0,0,0,0.10);
+  --accent:     #f05f22;
+  --accent-dim: rgba(240,95,34,0.10);
+}
+
+/* 浅色主题：Logo SVG 白色路径翻转为深色 */
+[data-theme="light"] .header-logo svg path[fill="#FFFFFF"],
+[data-theme="light"] .sig-item svg path[fill="#FFFFFF"] {
+  fill: var(--text-1);
+}
+
+/* 浅色主题：SVG 黑色文字路径翻转为白色（与 blob 翻转配合 = LOGO_BLACK 效果）*/
+[data-theme="light"] .header-logo svg path[fill="#000000"],
+[data-theme="light"] .sig-item svg path[fill="#000000"] {
+  fill: #ffffff;
+}
+
+/* 浅色主题：季节限定卡片蒙版减弱 */
+[data-theme="light"] .seasonal-card .card-body {
+  background: linear-gradient(transparent, rgba(0,0,0,0.60) 45%);
+}
+
+/* 浅色主题：租赁图片左侧渐变蒙版去除（浅色底不自然） */
+[data-theme="light"] .rental-img-wrap::before {
+  display: none;
+}
+
+/* 浅色主题：租赁叠加文字强制白色系（底图为深色） */
+[data-theme="light"] .rental-slogan { color: #ffffff; }
+[data-theme="light"] .rental-tier { color: #cccccc; }
+[data-theme="light"] .rental-process { color: #888888; border-top-color: rgba(255,255,255,0.08); }
+[data-theme="light"] .rental-process strong { color: #cccccc; }
+
