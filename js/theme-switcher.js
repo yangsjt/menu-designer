@@ -5,7 +5,8 @@
 (function () {
   /* ─── Theme ─── */
   var THEME_KEY = 'menu-theme';
-  var DEFAULT_THEME = 'default';
+  var isA4 = location.pathname.indexOf('a4') !== -1;
+  var DEFAULT_THEME = isA4 ? 'light' : 'default';
 
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
@@ -25,7 +26,7 @@
   }
 
   /* ─── Layout ─── */
-  var LAYOUT_KEY = location.pathname.indexOf('a4') !== -1 ? 'a4-layout' : 'wall-layout';
+  var LAYOUT_KEY = isA4 ? 'a4-layout' : 'wall-layout';
   var DEFAULT_LAYOUT = 'a';
 
   function applyLayout(layout) {
